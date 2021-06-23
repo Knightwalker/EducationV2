@@ -11,9 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFirstApp", "MyFirstApp\My
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HTTPServer2", "HTTPServer2\HTTPServer2.csproj", "{1F5A427E-DF2F-412F-9638-68C3CA72629D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketsServerStarter", "SocketsServerStarter\SocketsServerStarter.csproj", "{6DF69C67-BF97-40EA-B771-1A77ADA6A542}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocketsServerStarter", "SocketsServerStarter\SocketsServerStarter.csproj", "{6DF69C67-BF97-40EA-B771-1A77ADA6A542}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketClientStarter", "SocketClientStarter\SocketClientStarter.csproj", "{6CAF289B-917D-406F-8CB0-9F29BD7302DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocketClientStarter", "SocketClientStarter\SocketClientStarter.csproj", "{6CAF289B-917D-406F-8CB0-9F29BD7302DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4AB6F7BE-C815-41E8-8170-AD98F6C1A0C0}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
