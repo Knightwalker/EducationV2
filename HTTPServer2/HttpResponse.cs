@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HTTPServer2
 {
-    class HttpResponse
+    public class HttpResponse
     {
         private readonly string NewLine = "\r\n";
 
@@ -32,7 +32,7 @@ namespace HTTPServer2
         public void setBody(string body)
         {
             this.Body = body;
-            this.Headers["Content-Length"] = Encoding.UTF8.GetByteCount(body).ToString(); 
+            this.Headers["Content-Length"] = Encoding.UTF8.GetByteCount(body).ToString();
         }
 
         public override string ToString()

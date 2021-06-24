@@ -3,7 +3,7 @@ using System.Text;
 
 namespace HTTPServer2
 {
-    class HttpRequest
+    public class HttpRequest
     {
         private const string NewLine = "\r\n";
         public string Method;

@@ -2,7 +2,7 @@
 
 namespace HTTPServer2
 {
-    class Cookie
+    public class Cookie
     {
         public Cookie(string name, string value)
         {

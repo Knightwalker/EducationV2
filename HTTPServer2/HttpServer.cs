@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -12,12 +13,25 @@ namespace HTTPServer2
         private readonly int port;
         private readonly TcpListener tcpListener;
         private bool isRunning = false;
+        private Dictionary<string, Func<HttpRequest, HttpResponse, HttpResponse>> routesTable = new Dictionary<string, Func<HttpRequest, HttpResponse, HttpResponse>>();
 
         public HttpServer(string ipAddress, int port)
         {
             this.ipAddress = IPAddress.Parse(ipAddress);
             this.port = port;
             this.tcpListener = new TcpListener(this.ipAddress, port);
+        }
+
+        public void AddRoute(string path, Func<HttpRequest, HttpResponse, HttpResponse> func)
+        {
+            if (this.routesTable.ContainsKey(path))
+            {
+                this.routesTable[path] = func;
+            }
+            else
+            {
+                this.routesTable.Add(path, func);
+            }
         }
 
         public async Task Start()
@@ -37,18 +51,19 @@ namespace HTTPServer2
         {
             var networkStream = tcpClient.GetStream();
             var requestRaw = this.ReadRequest(networkStream);
+            var httpRequest = new HttpRequest();
+            var httpResponse = new HttpResponse();
 
             Console.WriteLine(requestRaw);
-
-            var httpRequest = new HttpRequest();
             httpRequest.Parse(requestRaw);
 
-            
+            if (this.routesTable.ContainsKey(httpRequest.Url))
+            {
+                var action = this.routesTable[httpRequest.Url];
+                _ = action(httpRequest, httpResponse);
+            }
 
-            var httpResponse = new HttpResponse();
-            httpResponse.setBody("Hello World!");
             httpResponse.Cookies.Add("sid", new Cookie("sid", Guid.NewGuid().ToString()) { HttpOnly = true, MaxAge = 60 * 24 * 60 * 60 } );
-
             Console.WriteLine(httpResponse.ToString());
             Console.WriteLine($"{httpRequest.Method} {httpRequest.Url} => {httpRequest.Headers.Count}");
 
