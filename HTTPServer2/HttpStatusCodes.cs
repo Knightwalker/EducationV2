@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HTTPServer2
+namespace HTTPServer
 {
     public static class HttpStatusCodes
     {

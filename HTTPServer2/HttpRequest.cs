@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace HTTPServer2
+namespace HTTPServer
 {
     public class HttpRequest
     {

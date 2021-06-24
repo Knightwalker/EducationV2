@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HTTPServer2.Responses
+namespace HTTPServer.Responses
 {
     class TextResponse : HttpResponse
     {

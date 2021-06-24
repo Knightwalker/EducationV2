@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HTTPServer2.Router
+namespace HTTPServer.Router
 {
     public class Router
     {

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using HTTPServer2;
+using HTTPServer;
 
-namespace MyApp2
+namespace MyApp
 {
     class Startup
     {

@@ -5,7 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HTTPServer2
+namespace HTTPServer
 {
     public class HttpServer
     {
