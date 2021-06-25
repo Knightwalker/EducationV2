@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HTTPServer2\HTTPServer.csproj" />
+    <ProjectReference Include="..\HTTPServer2\WebFramework.HTTP.csproj" />
+    <ProjectReference Include="..\WebFramework.MVC\WebFramework.MVC.csproj" />
   </ItemGroup>
 
 </Project>

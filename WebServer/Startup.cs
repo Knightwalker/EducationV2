@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
-using HTTPServer;
+using MyApp.Controllers;
+using WebFramework.HTTP;
 
 namespace MyApp
 {
@@ -9,16 +10,11 @@ namespace MyApp
         {
             var server = new HttpServer("127.0.0.1", 8080);
 
-            server.AddRoute("/", HomePage);
+            server.AddRoute("/", new HomeController().HomePage);
+            server.AddRoute("/about", new HomeController().AboutPage);
 
             await server.Start();
         }
 
-        static HttpResponse HomePage(HttpRequest req, HttpResponse res)
-        {
-            res.Headers["Content-Type"] = "text/html; charset=UTF-8";
-            res.setBody("hello world");
-            return res;
-        }
     }
 }

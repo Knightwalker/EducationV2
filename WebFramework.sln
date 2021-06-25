@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp", "WebServer\MyApp.csproj", "{A19E555A-8F8A-40A3-9534-EB223F81D3D6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HTTPServer", "HTTPServer2\HTTPServer.csproj", "{1F5A427E-DF2F-412F-9638-68C3CA72629D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebFramework.HTTP", "HTTPServer2\WebFramework.HTTP.csproj", "{1F5A427E-DF2F-412F-9638-68C3CA72629D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocketsServerStarter", "SocketsServerStarter\SocketsServerStarter.csproj", "{6DF69C67-BF97-40EA-B771-1A77ADA6A542}"
 EndProject
@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFramework.MVC", "WebFramework.MVC\WebFramework.MVC.csproj", "{06E1B700-81DB-4FE5-B7F3-F7F80D0ADC75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{6CAF289B-917D-406F-8CB0-9F29BD7302DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CAF289B-917D-406F-8CB0-9F29BD7302DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CAF289B-917D-406F-8CB0-9F29BD7302DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06E1B700-81DB-4FE5-B7F3-F7F80D0ADC75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06E1B700-81DB-4FE5-B7F3-F7F80D0ADC75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06E1B700-81DB-4FE5-B7F3-F7F80D0ADC75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06E1B700-81DB-4FE5-B7F3-F7F80D0ADC75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

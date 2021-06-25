@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace HTTPServer
+namespace WebFramework.HTTP
 {
     public class HttpRequest
     {
