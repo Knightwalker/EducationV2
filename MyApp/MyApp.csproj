@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HTTPServer2\WebFramework.HTTP.csproj" />
+    <ProjectReference Include="..\WebFramework.HTTP\WebFramework.HTTP.csproj" />
     <ProjectReference Include="..\WebFramework.MVC\WebFramework.MVC.csproj" />
   </ItemGroup>
 
