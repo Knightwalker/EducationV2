@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace WebFramework.HTTP
+namespace WebFramework
 {
     public class Cookie
     {

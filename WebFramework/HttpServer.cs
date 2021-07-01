@@ -5,7 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebFramework.HTTP
+namespace WebFramework
 {
     public class HttpServer
     {
@@ -13,7 +13,7 @@ namespace WebFramework.HTTP
         private readonly int port;
         private readonly TcpListener tcpListener;
         private bool isRunning = false;
-        private Dictionary<string, Func<HttpRequest, HttpResponse, HttpResponse>> routesTable = new Dictionary<string, Func<HttpRequest, HttpResponse, HttpResponse>>();
+        private Dictionary<string, Func<HttpRequest, HttpResponse>> routesTable = new Dictionary<string, Func<HttpRequest, HttpResponse>>();
 
         public HttpServer(string ipAddress, int port)
         {
@@ -22,7 +22,7 @@ namespace WebFramework.HTTP
             this.tcpListener = new TcpListener(this.ipAddress, port);
         }
 
-        public void AddRoute(string path, Func<HttpRequest, HttpResponse, HttpResponse> func)
+        public void AddRoute(string path, Func<HttpRequest, HttpResponse> func)
         {
             if (this.routesTable.ContainsKey(path))
             {
@@ -52,7 +52,7 @@ namespace WebFramework.HTTP
             var networkStream = tcpClient.GetStream();
             var requestRaw = this.ReadRequest(networkStream);
             var httpRequest = new HttpRequest();
-            var httpResponse = new HttpResponse();
+            HttpResponse httpResponse = null;
 
             Console.WriteLine(requestRaw);
             httpRequest.Parse(requestRaw);
@@ -60,10 +60,15 @@ namespace WebFramework.HTTP
             if (this.routesTable.ContainsKey(httpRequest.Url))
             {
                 var action = this.routesTable[httpRequest.Url];
-                _ = action(httpRequest, httpResponse);
+                httpResponse = action(httpRequest);
+            }
+            else
+            {
+                httpResponse = new HttpResponse();
+                httpResponse.StatusCode = HttpStatusCodes.NotFound;
             }
 
-            httpResponse.Cookies.Add("sid", new Cookie("sid", Guid.NewGuid().ToString()) { HttpOnly = true, MaxAge = 60 * 24 * 60 * 60 } );
+            httpResponse.Cookies.Add("sid", new Cookie("sid", Guid.NewGuid().ToString()) { HttpOnly = true, MaxAge = 60 * 24 * 60 * 60 });
             Console.WriteLine(httpResponse.ToString());
             Console.WriteLine($"{httpRequest.Method} {httpRequest.Url} => {httpRequest.Headers.Count}");
 

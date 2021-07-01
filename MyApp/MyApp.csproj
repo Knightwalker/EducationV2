@@ -6,8 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WebFramework.HTTP\WebFramework.HTTP.csproj" />
-    <ProjectReference Include="..\WebFramework.MVC\WebFramework.MVC.csproj" />
+    <Folder Include="Views\Home\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebFramework\WebFramework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Views\Users\Register.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

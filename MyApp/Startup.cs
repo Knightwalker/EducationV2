@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using MyApp.Controllers;
-using WebFramework.HTTP;
+using WebFramework;
 
 namespace MyApp
 {
@@ -12,6 +12,8 @@ namespace MyApp
 
             server.AddRoute("/", new HomeController().HomePage);
             server.AddRoute("/about", new HomeController().AboutPage);
+            server.AddRoute("/register", new UsersController().LoginPage);
+            server.AddRoute("/register", new UsersController().RegisterPage);
 
             await server.Start();
         }

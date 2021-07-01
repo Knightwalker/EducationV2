@@ -4,7 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebFramework.HTTP
+namespace WebFramework
 {
     public class HttpResponse
     {
@@ -19,6 +19,7 @@ namespace WebFramework.HTTP
             this.Headers["Server"] = "My Web Server";
             this.Headers["Date"] = DateTime.UtcNow.ToString("r");
             this.Headers["Content-Type"] = "text/plain; charset=UTF-8";
+            this.Headers["Content-Length"] = "0";
         }
 
         public string Version { get; set; }

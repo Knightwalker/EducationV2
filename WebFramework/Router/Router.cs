@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace WebFramework.HTTP.Router
+namespace WebFramework.Router
 {
     public class Router
     {
