@@ -35,5 +35,20 @@ namespace WeatherApp.Controllers
         {
             return View(citiesList);
         }
+
+        [Route("/weather/{cityCode?}")]
+        public IActionResult City(string? cityCode)
+        {
+            if (string.IsNullOrEmpty(cityCode))
+            {
+                return View();
+            }
+
+            CityWeatherModel? city = citiesList
+                .Where(temp => temp.CityUniqueCode == cityCode)
+                .FirstOrDefault();
+
+            return View(city);
+        }
     }
 }
