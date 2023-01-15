@@ -1,0 +1,60 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    background: white;
+}
+
+:root {
+    --inventoryWidth: 500px;
+    --inventoryHeight: 202px;
+    --inventoryRows: 4;
+    --inventoryCols: 10;
+    --inventoryGap: 2px;
+}
+
+#inventory {
+    display: grid;
+    grid-template-columns: repeat(var(--inventoryCols), 1fr);
+    grid-template-rows: repeat(var(--inventoryRows), 1fr);
+    gap: var(--inventoryGap);
+    padding: var(--inventoryGap);
+    width: var(--inventoryWidth);
+    height: var(--inventoryHeight);
+    border: 1px solid black;
+    background-color: wheat;
+    user-select: none;
+}
+
+.slot {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    border: 3px solid black;
+}
+
+.item {
+    background-color: antiquewhite;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    margin: 1px;
+    cursor: pointer;
+}
+
+.item.pointer-events-none {
+    pointer-events: none;
+}
+
+.dragging {
+    border: solid #ccc 1px;
+}
+
+.hovered {
+    background: #f4f4f4;
+    border-style: dashed;
+}
+
+.hidden {
+    display: none;
+}
