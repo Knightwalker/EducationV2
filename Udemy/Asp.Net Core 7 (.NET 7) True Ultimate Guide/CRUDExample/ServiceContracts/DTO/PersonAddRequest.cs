@@ -1,7 +1,7 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using Entities;
 using ServiceContracts.Enums;
+using Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace ServiceContracts.DTO
 {
@@ -10,11 +10,11 @@ namespace ServiceContracts.DTO
     /// </summary>
     public class PersonAddRequest
     {
-        [Required(ErrorMessage = "Person Name can't be empty")]
+        [Required(ErrorMessage = "Person Name can't be blank")]
         public string? PersonName { get; set; }
 
-        [Required(ErrorMessage = "Email can't be empty")]
-        [EmailAddress(ErrorMessage = "Email value shoud be a valid email")]
+        [Required(ErrorMessage = "Email can't be blank")]
+        [EmailAddress(ErrorMessage = "Email value should be a valid email")]
         public string? Email { get; set; }
 
         public DateTime? DateOfBirth { get; set; }
@@ -27,18 +27,9 @@ namespace ServiceContracts.DTO
         /// Converts the current object of PersonAddRequest into a new object of Person type
         /// </summary>
         /// <returns></returns>
-        public Person toPerson()
+        public Person ToPerson()
         {
-            return new Person()
-            {
-                PersonName = this.PersonName,
-                Email = this.Email,
-                DateOfBirth = this.DateOfBirth,
-                Gender = this.Gender.ToString(),
-                CountryID = this.CountryID,
-                Address = this.Address,
-                ReceiveNewsLetters = this.ReceiveNewsLetters
-            };
+            return new Person() { PersonName = PersonName, Email = Email, DateOfBirth = DateOfBirth, Gender = Gender.ToString(), Address = Address, CountryID = CountryID, ReceiveNewsLetters = ReceiveNewsLetters };
         }
     }
 }

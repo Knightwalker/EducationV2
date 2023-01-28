@@ -4,7 +4,7 @@ using Entities;
 namespace ServiceContracts.DTO
 {
     /// <summary>
-    /// Represents DTO class that is used as return type of most methods of Person Service
+    /// Represents DTO class that is used as return type of most methods of Persons Service
     /// </summary>
     public class PersonResponse
     {
@@ -22,29 +22,16 @@ namespace ServiceContracts.DTO
         /// <summary>
         /// Compares the current object data with the parameter object
         /// </summary>
-        /// <param name="obj"></param>
-        /// <returns>
-        /// True or false, indicating whether all person details are matched with the specified parameter object
-        /// </returns>
+        /// <param name="obj">The PersonResponse Object to compare</param>
+        /// <returns>True or false, indicating whether all person details are matched with the specified parameter object</returns>
         public override bool Equals(object? obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj == null) return false;
 
-            if (obj.GetType() != typeof(PersonResponse))
-            {
-                return false;
-            }
+            if (obj.GetType() != typeof(PersonResponse)) return false;
 
             PersonResponse person = (PersonResponse)obj;
-            if (this.PersonID != person.PersonID)
-            {
-                return false;
-            }
-
-            return true;
+            return PersonID == person.PersonID && PersonName == person.PersonName && Email == person.Email && DateOfBirth == person.DateOfBirth && Gender == person.Gender && CountryID == person.CountryID && Address == person.Address && ReceiveNewsLetters == person.ReceiveNewsLetters;
         }
 
         public override int GetHashCode()
@@ -58,26 +45,27 @@ namespace ServiceContracts.DTO
         }
     }
 
-    /// <summary>
-    /// An extension method to convert an object of Person class into PersonResponse class
-    /// </summary>
-    /// <param name="person">The Person object to converted</param>
-    /// <return>Returns the converted PersonResponse</return>
     public static class PersonExtensions
     {
+        /// <summary>
+        /// An extension method to convert an object of Person class into PersonResponse class
+        /// </summary>
+        /// <param name="person">The Person object to convert</param>
+        /// /// <returns>Returns the converted PersonResponse object</returns>
         public static PersonResponse ToPersonResponse(this Person person)
         {
+            //person => convert => PersonResponse
             return new PersonResponse()
             {
                 PersonID = person.PersonID,
                 PersonName = person.PersonName,
                 Email = person.Email,
                 DateOfBirth = person.DateOfBirth,
-                Gender = person.Gender,
-                CountryID = person.CountryID,
-                Address = person.Address,
                 ReceiveNewsLetters = person.ReceiveNewsLetters,
-                Age = (person.DateOfBirth != null) ? Math.Round((DateTime.Now - person.DateOfBirth.Value).TotalDays) / 365.25 : null,
+                Address = person.Address,
+                CountryID = person.CountryID,
+                Gender = person.Gender,
+                Age = (person.DateOfBirth != null) ? Math.Round((DateTime.Now - person.DateOfBirth.Value).TotalDays / 365.25) : null
             };
         }
     }

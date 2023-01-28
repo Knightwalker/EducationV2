@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using ServiceContracts.DTO;
 
 namespace Services.Helpers
 {
@@ -8,9 +8,10 @@ namespace Services.Helpers
     {
         internal static void ModelValidation(object obj)
         {
-            // Model validations
+            //Model validations
             ValidationContext validationContext = new ValidationContext(obj);
             List<ValidationResult> validationResults = new List<ValidationResult>();
+
             bool isValid = Validator.TryValidateObject(obj, validationContext, validationResults, true);
             if (!isValid)
             {
