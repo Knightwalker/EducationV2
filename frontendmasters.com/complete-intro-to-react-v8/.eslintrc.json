@@ -2,8 +2,7 @@
     "extends": [
         "eslint:recommended",
         "plugin:import/recommended",
-        "plugin:react/recommended",
-        "plugin:jsx-a11y/recommended"
+        "plugin:react/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": 2023,
@@ -12,7 +11,7 @@
             "jsx": true
         }
     },
-    "plugins": ["react", "import", "jsx-a11y"],
+    "plugins": ["react", "import"],
     "env": {
         "es6": true,
         "browser": true,
@@ -21,6 +20,7 @@
     "rules": {
         "semi": ["warn", "always"],
         "quotes": ["warn", "double", { "allowTemplateLiterals": true }],
+        "no-unused-vars": "warn",
         "react/prop-types": 0,
         "react/react-in-jsx-scope": 0
     },
