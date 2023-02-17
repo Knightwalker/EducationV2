@@ -1,8 +1,10 @@
 {
     "extends": [
-        "eslint:recommended"
+        "eslint:recommended",
+        "plugin:import/recommended",
+        "plugin:react/recommended",
+        "plugin:jsx-a11y/recommended"
     ],
-    "plugins": [],
     "parserOptions": {
         "ecmaVersion": 2023,
         "sourceType": "module",
@@ -10,9 +12,26 @@
             "jsx": true
         }
     },
+    "plugins": ["react", "import", "jsx-a11y"],
     "env": {
         "es6": true,
         "browser": true,
         "node": true
+    },
+    "rules": {
+        "semi": ["warn", "always"],
+        "quotes": ["warn", "double", { "allowTemplateLiterals": true }],
+        "react/prop-types": 0,
+        "react/react-in-jsx-scope": 0
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        },
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx"]
+            }
+        }
     }
 }
