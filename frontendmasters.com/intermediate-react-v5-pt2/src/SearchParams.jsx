@@ -35,8 +35,9 @@ const SearchParams = () => {
     // }
 
     return (
-        <div className="search-params">
-            <form
+        <div className="my-0 mx-auto w-11/12">
+            <form   
+                className="mb-10 flex flex-col items-center justify-center rounded-lg bg-gray-200 p-10 shadow-lg"
                 onSubmit={e => {
                     e.preventDefault();
                     // requestPets();
@@ -59,17 +60,18 @@ const SearchParams = () => {
                 <label htmlFor="location">
                     Location
                     <input
+                        type="text"
                         id="location"
                         name="location"
-                        // value={location}
+                        className="mb-5 block w-60"
                         placeholder="location"
-                        // onChange={e => setLocation(e.target.value)}
                     />
                 </label>
                 <label htmlFor="animal">
                     Animal
                     <select
                         id="animal"
+                        className="mb-5 block w-60"
                         value={animal}
                         onChange={e => {
                             setAnimal(e.target.value);
@@ -87,6 +89,7 @@ const SearchParams = () => {
                     <select
                         id="breed"
                         name="breed"
+                        className="mb-5 block w-60 disabled:opacity-50"
                         disabled={breeds.length === 0}
                         // value={breed}
                         // onChange={e => setBreed(e.target.value)}
@@ -97,7 +100,7 @@ const SearchParams = () => {
                         ))}
                     </select>
                 </label>
-                <button>Submit</button>
+                <button className="rounded px-6 py-2 text-white hover:opacity-50 border-none bg-orange-500 w-60">Submit</button>
             </form>
             <Results pets={pets} />
         </div>
