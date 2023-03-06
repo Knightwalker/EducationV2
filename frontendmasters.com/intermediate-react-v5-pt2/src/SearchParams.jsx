@@ -12,27 +12,12 @@ const SearchParams = () => {
         animal: "",
         breed: ""
     });
-    // const [location, setLocation] = useState("");
     const [animal, setAnimal] = useState("");
-    // const [breed, setBreed] = useState("");
-    // const [pets, setPets] = useState([]);
     const [breeds] = useBreedList(animal);
     const [adoptedPet] = useContext(AdoptedPetContext);
 
     const results = useQuery(["search", requestParams], fetchSearch);
     const pets = results?.data?.pets ?? [];
-
-    // useEffect(() => {
-    //     requestPets();
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
-
-    // async function requestPets() {
-    //     const res = await fetch(`https://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`);
-    //     const json = await res.json();
-
-    //     setPets(json.pets);
-    // }
 
     return (
         <div className="my-0 mx-auto w-11/12">
@@ -63,7 +48,7 @@ const SearchParams = () => {
                         type="text"
                         id="location"
                         name="location"
-                        className="mb-5 block w-60"
+                        className="search-input"
                         placeholder="location"
                     />
                 </label>
@@ -71,11 +56,10 @@ const SearchParams = () => {
                     Animal
                     <select
                         id="animal"
-                        className="mb-5 block w-60"
+                        className="search-input"
                         value={animal}
                         onChange={e => {
                             setAnimal(e.target.value);
-                            // setBreed("");
                         }}
                     >
                         <option></option>
@@ -89,10 +73,8 @@ const SearchParams = () => {
                     <select
                         id="breed"
                         name="breed"
-                        className="mb-5 block w-60 disabled:opacity-50"
+                        className="search-input grayed-out-disabled"
                         disabled={breeds.length === 0}
-                        // value={breed}
-                        // onChange={e => setBreed(e.target.value)}
                     >
                         <option></option>
                         {breeds.map((breed) => (

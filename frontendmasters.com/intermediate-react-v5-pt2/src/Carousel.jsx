@@ -20,9 +20,9 @@ class Carousel extends Component {
         const { images } = this.props;
 
         return (
-            <div className="carousel">
+            <div className="grid grid-cols-4 gap-4">
                 <img src={images[active]} alt="animal hero"></img>
-                <div className="carousel-smaller">
+                <div className="grid grid-cols-4 gap-4">
                     {images.map((photo, index) => (
                         <img
                             onClick={this.handleIndexClick}
