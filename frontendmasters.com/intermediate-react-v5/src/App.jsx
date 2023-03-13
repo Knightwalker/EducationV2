@@ -1,28 +1,42 @@
-import { Route, Routes } from 'react-router-dom';
-import Nav from './Nav';
-import Home from './routes/Home';
-import UseRef from './routes/UseRef';
-import UseCallback from './routes/UseCallback';
-import UseMemo from './routes/UseMemo';
-import UseReducer from './routes/UseReducer';
-import UseLayoutEffect from './routes/UseLayoutEffect';
-import UseId from './routes/UseId';
+import { useState } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import AdoptedPetContext from "./AdoptedPetContext";
+import SearchParams from "./SearchParams";
+import Details from "./Details";
 
-function App() {
-  return (
-    <div className="App">
-      <Nav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/useReducer" element={<UseReducer />} />
-        <Route path="/useMemo" element={<UseMemo />} />
-        <Route path="/useCallback" element={<UseCallback />} />
-        <Route path="/useRef" element={<UseRef />} />
-        <Route path="/useLayoutEffect" element={<UseLayoutEffect />} />
-        <Route path="/useId" element={<UseId />} />
-      </Routes>
-    </div>
-  );
-}
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            staleTime: Infinity,
+            cacheTime: Infinity
+        }
+    }
+});
 
-export default App;
+const App = () => {
+    const adoptedPet = useState(null);
+
+    return (
+        <div className="p-0 m-0" style={{ background: "url(http://pets-images.dev-apis.com/pets/wallpaperA.jpg)"}}>
+            <BrowserRouter>
+                <QueryClientProvider client={queryClient}>
+                    <AdoptedPetContext.Provider value={adoptedPet}>
+                        <header className="w-full mb-10 bg-gradient-to-b from-yellow-400 via-orange-500 to-red-500 p-7 text-center">
+                            <Link className="text-6xl text-white hover:text-gray-200" to="/">Adopt Me!</Link>
+                        </header>
+                        <Routes>
+                            <Route path="/details/:id" element={<Details />} />
+                            <Route path="/" element={<SearchParams />} />
+                        </Routes>
+                    </AdoptedPetContext.Provider>
+                </QueryClientProvider>
+            </BrowserRouter>
+        </div>
+    );
+};
+
+const container = document.getElementById("root");
+const root = createRoot(container);
+root.render(<App />);
