@@ -1,0 +1,15 @@
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\02_RecursiveFactorial\bin\Debug\net6.0\02_RecursiveFactorial.exe
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\02_RecursiveFactorial\bin\Debug\net6.0\02_RecursiveFactorial.deps.json
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\02_RecursiveFactorial\bin\Debug\net6.0\02_RecursiveFactorial.runtimeconfig.json
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\02_RecursiveFactorial\bin\Debug\net6.0\02_RecursiveFactorial.dll
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\02_RecursiveFactorial\bin\Debug\net6.0\02_RecursiveFactorial.pdb
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\02_RecursiveFactorial\obj\Debug\net6.0\02_RecursiveFactorial.csproj.AssemblyReference.cache
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\02_RecursiveFactorial\obj\Debug\net6.0\02_RecursiveFactorial.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\02_RecursiveFactorial\obj\Debug\net6.0\02_RecursiveFactorial.AssemblyInfoInputs.cache
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\02_RecursiveFactorial\obj\Debug\net6.0\02_RecursiveFactorial.AssemblyInfo.cs
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\02_RecursiveFactorial\obj\Debug\net6.0\02_RecursiveFactorial.csproj.CoreCompileInputs.cache
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\02_RecursiveFactorial\obj\Debug\net6.0\02_RecursiveFactorial.dll
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\02_RecursiveFactorial\obj\Debug\net6.0\refint\02_RecursiveFactorial.dll
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\02_RecursiveFactorial\obj\Debug\net6.0\02_RecursiveFactorial.pdb
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\02_RecursiveFactorial\obj\Debug\net6.0\02_RecursiveFactorial.genruntimeconfig.cache
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\02_RecursiveFactorial\obj\Debug\net6.0\ref\02_RecursiveFactorial.dll

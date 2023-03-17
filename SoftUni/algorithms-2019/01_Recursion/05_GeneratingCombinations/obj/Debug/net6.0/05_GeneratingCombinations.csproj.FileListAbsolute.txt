@@ -1,0 +1,15 @@
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\05_GeneratingCombinations\bin\Debug\net6.0\05_GeneratingCombinations.exe
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\05_GeneratingCombinations\bin\Debug\net6.0\05_GeneratingCombinations.deps.json
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\05_GeneratingCombinations\bin\Debug\net6.0\05_GeneratingCombinations.runtimeconfig.json
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\05_GeneratingCombinations\bin\Debug\net6.0\05_GeneratingCombinations.dll
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\05_GeneratingCombinations\bin\Debug\net6.0\05_GeneratingCombinations.pdb
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\05_GeneratingCombinations\obj\Debug\net6.0\05_GeneratingCombinations.csproj.AssemblyReference.cache
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\05_GeneratingCombinations\obj\Debug\net6.0\05_GeneratingCombinations.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\05_GeneratingCombinations\obj\Debug\net6.0\05_GeneratingCombinations.AssemblyInfoInputs.cache
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\05_GeneratingCombinations\obj\Debug\net6.0\05_GeneratingCombinations.AssemblyInfo.cs
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\05_GeneratingCombinations\obj\Debug\net6.0\05_GeneratingCombinations.csproj.CoreCompileInputs.cache
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\05_GeneratingCombinations\obj\Debug\net6.0\05_GeneratingCombinations.dll
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\05_GeneratingCombinations\obj\Debug\net6.0\refint\05_GeneratingCombinations.dll
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\05_GeneratingCombinations\obj\Debug\net6.0\05_GeneratingCombinations.pdb
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\05_GeneratingCombinations\obj\Debug\net6.0\05_GeneratingCombinations.genruntimeconfig.cache
+C:\Users\Knightwalker\Desktop\Projects\Learning Projects\01_Recursion\05_GeneratingCombinations\obj\Debug\net6.0\ref\05_GeneratingCombinations.dll
