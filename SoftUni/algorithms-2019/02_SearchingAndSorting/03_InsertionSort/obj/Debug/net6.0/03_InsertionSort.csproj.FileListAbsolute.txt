@@ -1,0 +1,15 @@
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\03_InsertionSort\bin\Debug\net6.0\03_InsertionSort.exe
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\03_InsertionSort\bin\Debug\net6.0\03_InsertionSort.deps.json
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\03_InsertionSort\bin\Debug\net6.0\03_InsertionSort.runtimeconfig.json
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\03_InsertionSort\bin\Debug\net6.0\03_InsertionSort.dll
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\03_InsertionSort\bin\Debug\net6.0\03_InsertionSort.pdb
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\03_InsertionSort\obj\Debug\net6.0\03_InsertionSort.csproj.AssemblyReference.cache
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\03_InsertionSort\obj\Debug\net6.0\03_InsertionSort.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\03_InsertionSort\obj\Debug\net6.0\03_InsertionSort.AssemblyInfoInputs.cache
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\03_InsertionSort\obj\Debug\net6.0\03_InsertionSort.AssemblyInfo.cs
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\03_InsertionSort\obj\Debug\net6.0\03_InsertionSort.csproj.CoreCompileInputs.cache
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\03_InsertionSort\obj\Debug\net6.0\03_InsertionSort.dll
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\03_InsertionSort\obj\Debug\net6.0\refint\03_InsertionSort.dll
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\03_InsertionSort\obj\Debug\net6.0\03_InsertionSort.pdb
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\03_InsertionSort\obj\Debug\net6.0\03_InsertionSort.genruntimeconfig.cache
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\03_InsertionSort\obj\Debug\net6.0\ref\03_InsertionSort.dll

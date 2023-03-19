@@ -1,0 +1,15 @@
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\02_SelectionSort\obj\Debug\net6.0\02_SelectionSort.csproj.AssemblyReference.cache
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\02_SelectionSort\obj\Debug\net6.0\02_SelectionSort.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\02_SelectionSort\obj\Debug\net6.0\02_SelectionSort.AssemblyInfoInputs.cache
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\02_SelectionSort\obj\Debug\net6.0\02_SelectionSort.AssemblyInfo.cs
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\02_SelectionSort\obj\Debug\net6.0\02_SelectionSort.csproj.CoreCompileInputs.cache
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\02_SelectionSort\bin\Debug\net6.0\02_SelectionSort.exe
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\02_SelectionSort\bin\Debug\net6.0\02_SelectionSort.deps.json
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\02_SelectionSort\bin\Debug\net6.0\02_SelectionSort.runtimeconfig.json
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\02_SelectionSort\bin\Debug\net6.0\02_SelectionSort.dll
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\02_SelectionSort\bin\Debug\net6.0\02_SelectionSort.pdb
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\02_SelectionSort\obj\Debug\net6.0\02_SelectionSort.dll
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\02_SelectionSort\obj\Debug\net6.0\refint\02_SelectionSort.dll
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\02_SelectionSort\obj\Debug\net6.0\02_SelectionSort.pdb
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\02_SelectionSort\obj\Debug\net6.0\02_SelectionSort.genruntimeconfig.cache
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\02_SelectionSort\obj\Debug\net6.0\ref\02_SelectionSort.dll

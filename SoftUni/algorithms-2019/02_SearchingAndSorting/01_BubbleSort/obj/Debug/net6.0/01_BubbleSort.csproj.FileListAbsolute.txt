@@ -1,0 +1,15 @@
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\01_BubbleSort\bin\Debug\net6.0\01_BubbleSort.exe
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\01_BubbleSort\bin\Debug\net6.0\01_BubbleSort.deps.json
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\01_BubbleSort\bin\Debug\net6.0\01_BubbleSort.runtimeconfig.json
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\01_BubbleSort\bin\Debug\net6.0\01_BubbleSort.dll
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\01_BubbleSort\bin\Debug\net6.0\01_BubbleSort.pdb
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\01_BubbleSort\obj\Debug\net6.0\01_BubbleSort.csproj.AssemblyReference.cache
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\01_BubbleSort\obj\Debug\net6.0\01_BubbleSort.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\01_BubbleSort\obj\Debug\net6.0\01_BubbleSort.AssemblyInfoInputs.cache
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\01_BubbleSort\obj\Debug\net6.0\01_BubbleSort.AssemblyInfo.cs
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\01_BubbleSort\obj\Debug\net6.0\01_BubbleSort.csproj.CoreCompileInputs.cache
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\01_BubbleSort\obj\Debug\net6.0\01_BubbleSort.dll
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\01_BubbleSort\obj\Debug\net6.0\refint\01_BubbleSort.dll
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\01_BubbleSort\obj\Debug\net6.0\01_BubbleSort.pdb
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\01_BubbleSort\obj\Debug\net6.0\01_BubbleSort.genruntimeconfig.cache
+C:\Users\Knightwalker\Desktop\EducationV2\SoftUni\algorithms-2019\02_SearchingAndSorting\01_BubbleSort\obj\Debug\net6.0\ref\01_BubbleSort.dll
