@@ -7,7 +7,7 @@ export default function Contact() {
 
     return (
         <div>
-            <h1>contact</h1>
+            <h1>Contact Page</h1>
             <Link href="/">home</Link>
             <Link href="/blog/asdsa">post</Link>
             <button onClick={() => router.push("/")}>Home</button>
