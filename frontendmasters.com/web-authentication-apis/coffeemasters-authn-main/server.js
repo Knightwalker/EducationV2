@@ -25,18 +25,61 @@ const expectedOrigin = `${protocol}://${rpID}:${port}`;
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({
-  extended: true
+    extended: true
 }));
 
+function findUser(email) {
+    const results = db.data.users.filter(user => user.email === email);
+    if (results.length === 0) {
+        return null;
+    }
+    return results[0];
+}
+
 // ADD HERE THE REST OF THE ENDPOINTS
+app.post("/auth/login", (req, res) => {
+    const userFound = findUser(req.body.email);
+    if (userFound) {
+        // User Found, Check password
+        if (bcrypt.compareSync(req.body.password, userFound.password)) {
+            res.send({ ok: true, name: userFound.name, email: userFound.email });
+        } else {
+            res.send({ ok: false, message: "Credentials are wrong." });
+        }
+    } else {
+        // User Not Found
+        res.send({ ok: false, message: "Credentials are wrong." });
+    }
+});
 
+app.post("/auth/register", (req, res) => {
+    // TODO: Data Validation
 
+    const salt = bcrypt.genSaltSync(10);
+    const hashedPassword = bcrypt.hashSync(req.body.password, salt);
+
+    const user = {
+        name: req.body.name,
+        email: req.body.email,
+        password: hashedPassword
+    }
+    const userFound = findUser(user.email);
+    if (userFound) {
+        // User already exists
+        res.send({ ok: false, message: "User already exists" });
+    } else {
+        // User is new, we are good!
+        db.data.users.push(user);
+        db.write();
+        res.send({ ok: true })
+    }
+});
 
 app.get("*", (req, res) => {
-    res.sendFile(__dirname + "public/index.html"); 
+    res.sendFile(__dirname + "public/index.html");
 });
 
 app.listen(port, () => {
-  console.log(`App listening on port ${port}`)
+    console.log(`App listening on port ${port}`)
 });
 
