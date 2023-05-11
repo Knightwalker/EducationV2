@@ -1,11 +1,17 @@
 ## I. Description
 This public repo is a collection of all my completed labs & exercises for my software engineering education.
 
-## I. Contributing
-### I.1. Commit Message Format
+1. frontendmasters.com
+    - [Complete Intro to React, v8](https://github.com/Knightwalker/EducationV2/tree/main/frontendmasters.com/complete-intro-to-react-v8) - Completed on Feb 2023
+    - [React Performance](https://github.com/Knightwalker/EducationV2/tree/main/frontendmasters.com/aws-for-front-end-engineers-v2) - Completed on Mar 2023
+     - [AWS For Front-End Engineers, v2](https://github.com/Knightwalker/EducationV2/tree/main/frontendmasters.com/aws-for-front-end-engineers-v2) - Completed on Mar 2023
+    - [Full Stack for Front-End Engineers, v3](https://github.com/Knightwalker/EducationV2/tree/main/frontendmasters.com/full-stack-for-front-end-engineers-v3) - Completed on May 2023
+
+## II. Contributing
+### II.1. Commit Message Format
 The `<type>` and `<summary>` fields are mandatory.
 
-#### I.1.1 Commit Message Syntax
+#### II.1.1 Commit Message Syntax
 ```
 <type>: <short summary>
   │            │
@@ -20,7 +26,7 @@ The `<type>` and `<summary>` fields are mandatory.
   └─⫸ Commit Type: materials
 ```
 
-#### I.1.2. Type
+#### II.1.2. Type
 Must be one of the following:
 * **materials**: Updates to the learning materials
 * **docs**: Documentation only changes
