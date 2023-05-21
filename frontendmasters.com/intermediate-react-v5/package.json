@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "test": "vitest"
+    "test": "vitest --run"
   },
   "keywords": [],
   "author": "Brian Holt",
@@ -26,7 +26,8 @@
     "happy-dom": "^7.6.0",
     "prettier": "2.7.1",
     "vite": "3.1.4",
-    "vitest": "^0.24.3"
+    "vitest": "^0.24.5",
+    "vitest-fetch-mock": "^0.2.1"
   },
   "dependencies": {
     "@tanstack/react-query": "4.10.1",
