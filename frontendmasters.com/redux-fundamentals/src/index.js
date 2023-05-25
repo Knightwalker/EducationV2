@@ -1,50 +1,32 @@
 import {
-  createStore,
-  compose,
-  applyMiddleware,
-  bindActionCreators,
-  combineReducers
+    createStore,
+    compose,
+    applyMiddleware,
+    bindActionCreators,
+    combineReducers
 } from "redux";
 
-const initialState = {
-  users: [
-    { id: 1, name: "Steve" },
-    { id: 2, name: "Eric" }
-  ],
-  tasks: [
-    { title: "File the TPS reports" },
-    { title: "Order more energy drinks" }
-  ]
+const reducer = (state = { counter: 1 }, action) => {
+    if (action.type === "test") {
+        const counter = state.counter + 1;
+        return {...state, counter: counter };
+    }
+    return state;
 };
 
-const ADD_USER = "ADD_USER";
-const ADD_TASK = "ADD_TASK";
+const loggingMiddleware = store => next => action => {
+    console.log('old state', store.getState())
+    next(action)
+    console.log('new state', store.getState())
+}
 
-const addTask = (title) => ({ type: ADD_TASK, payload: { title } });
-const addUser = (name) => ({ type: ADD_USER, payload: { name } });
+const monitorMiddleware = store => next => action => {
+    const start = performance.now();
+    next(action);
+    const end = performance.now();
+    const diff = end - start;
+    console.log(diff);
+}
 
-const userReducer = (users = initialState.users, action) => {
-  if (action.type === ADD_USER) {
-    return [...users, action.payload];
-  }
-  return users;
-};
-
-const taskReducer = (tasks = initialState.tasks, action) => {
-  if (action.type === ADD_TASK) {
-    return [...tasks, action.payload];
-  }
-  return tasks;
-};
-
-const reducer = combineReducers({
-  users: userReducer,
-  tasks: taskReducer
-});
-
-const store = createStore(reducer);
-
-store.dispatch(addTask("Record the statistics"));
-store.dispatch(addUser("Marc"));
-
-console.log(store.getState());
+const store = createStore(reducer, applyMiddleware(loggingMiddleware, monitorMiddleware))
+store.dispatch({ type: "test" });
