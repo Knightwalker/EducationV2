@@ -13,9 +13,9 @@ const root = createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <Theme.Provider theme="default">
-      <React.StrictMode>
+      {/* <React.StrictMode> */}
         <Application />
-      </React.StrictMode>
+      {/* </React.StrictMode> */}
     </Theme.Provider>
   </Provider>,
 );
