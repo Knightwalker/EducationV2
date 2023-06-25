@@ -5,7 +5,9 @@
   "main": "./src/index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon ./src/index.js"
+    "start": "nodemon ./src/index.js",
+    "database:seed": "node seeder",
+    "database:clean": "node seeder -d"
   },
   "keywords": [],
   "author": "",
