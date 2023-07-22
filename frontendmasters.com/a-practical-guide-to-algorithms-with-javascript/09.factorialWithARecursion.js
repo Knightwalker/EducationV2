@@ -5,4 +5,4 @@ const fact = (n) => {
     return n * fact(n - 1);
 }
 
-console.log(fact(5)); // 120
+console.log(fact(20)); // 120
