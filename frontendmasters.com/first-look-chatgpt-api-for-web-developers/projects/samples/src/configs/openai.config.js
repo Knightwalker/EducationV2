@@ -1,0 +1,10 @@
+const openaiConfig = {
+    "model": "gpt-3.5-turbo",
+    "temperature": 0,
+    // "stream": true,
+    "messages": [
+        { "role": "system", "content": "You are a helpful assistant" }
+    ]
+}
+
+export default openaiConfig;
