@@ -1,25 +1,26 @@
 const Router = {
     init: () => {
         document.querySelectorAll("a.navlink").forEach(a => {
-            a.addEventListener("click", e => {
-                e.preventDefault();
-                const url = e.target.getAttribute("href");
+            a.addEventListener("click", event => {
+                event.preventDefault();
+                // const url1 = event.target.href;
+                const url = event.target.getAttribute("href");
                 Router.go(url);
             });
-        });
-        // Event handler for URL changes
-        window.addEventListener("popstate", (e) => {
-            Router.go(e.state.route, false)
+        })
+        // Event Handler for URL changes
+        window.addEventListener("popstate", event => {
+            Router.go(event.state.route, false);
         });
 
-        // Check initial URL
+        // Check the initial URL
         Router.go(location.pathname);
     },
-    go: (route, addToHistory = true) => {
+    go: (route, addToHistory=true) => {
         console.log(`Going to ${route}`);
 
         if (addToHistory) {
-            history.pushState({ route }, "", route);
+            history.pushState({ route }, '', route);
         }
         let pageElement = null;
         switch (route) {
@@ -32,21 +33,23 @@ const Router = {
             default:
                 if (route.startsWith("/product-")) {
                     pageElement = document.createElement("details-page");
-                    pageElement.textContent = "Details";
-                    const paramId = route.substring(route.lastIndexOf("-") + 1 );
-                    pageElement.dataset.id = paramId;
+                    const paramId = route.substring(route.lastIndexOf("-")+1);
+                    pageElement.dataset.productId = paramId;
                 }
-                break;
         }
         if (pageElement) {
             // document.querySelector("main").children[0].remove();
-            const mainEl = document.querySelector("main");
-            mainEl.innerHTML = "";
-            mainEl.appendChild(pageElement);
+            const cache = document.querySelector("main");
+            cache.innerHTML = "";
+            cache.appendChild(pageElement);
             window.scrollX = 0;
             window.scrollY = 0;
+
+        } else {
+            // 404
+            document.querySelector("main").innerHTML = "Oups, 404!"
+
         }
     }
 }
-
 export default Router;
