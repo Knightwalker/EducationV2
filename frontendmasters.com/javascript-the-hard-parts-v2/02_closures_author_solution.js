@@ -1,8 +1,8 @@
 // CHALLENGE 1
 function createFunction() {
-	return function(){
-    console.log('hello')
-  }
+    return function () {
+        console.log('hello')
+    }
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -12,10 +12,10 @@ const function1 = createFunction();
 
 // CHALLENGE 2
 function createFunctionPrinter(input) {
-  function printer(){
-    console.log(input)
-  }
-  return printer;
+    function printer() {
+        console.log(input)
+    }
+    return printer;
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -27,12 +27,12 @@ const printHello = createFunctionPrinter('hello');
 
 // CHALLENGE 3
 function outer() {
-  let counter = 0; // this variable is outside incrementCounter's scope
-  function incrementCounter () {
-    counter ++;
-    console.log('counter', counter);
-  }
-  return incrementCounter;
+    let counter = 0; // this variable is outside incrementCounter's scope
+    function incrementCounter() {
+        counter++;
+        console.log('counter', counter);
+    }
+    return incrementCounter;
 }
 
 //const willCounter = outer();
@@ -51,12 +51,12 @@ function outer() {
 
 
 function addByX(x) {
-	let step = x;
-  function add(start){
-    //console.log('addByX', start + step)
-    return start + step;
-  }
-	return add;
+    let step = x;
+    function add(start) {
+        //console.log('addByX', start + step)
+        return start + step;
+    }
+    return add;
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -76,16 +76,16 @@ addByFour(5); // => should return 9
 
 // CHALLENGE 4
 function once(func) {
-	let output;
-  function callOnce(x) {    
-    if(output > 0){
-      return output;
-    } else {
-      output = func(x)
-      return output;
+    let output;
+    function callOnce(x) {
+        if (output > 0) {
+            return output;
+        } else {
+            output = func(x)
+            return output;
+        }
     }
-  }
-  return callOnce;
+    return callOnce;
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -97,19 +97,19 @@ const onceFunc = once(addByTwo);
 
 // CHALLENGE 5
 function after(count, func) {
-	let numCalls = 0
-  function calledAfter() {
-    numCalls++;
-    if(numCalls == count) {
-      func()
+    let numCalls = 0
+    function calledAfter() {
+        numCalls++;
+        if (numCalls == count) {
+            func()
+        }
     }
-  }
-  
-  return calledAfter
+
+    return calledAfter
 }
 
 // /*** Uncomment these to check your work! ***/
-const called = function() { console.log('hello') };
+const called = function () { console.log('hello') };
 const afterCalled = after(3, called);
 //afterCalled(); // => nothing is printed
 //afterCalled(); // => nothing is printed
@@ -118,33 +118,33 @@ const afterCalled = after(3, called);
 
 // CHALLENGE 6
 function delay(func, wait, ...params) {
-	setTimeout(() => {
-    func(...params)
-  }, wait)
+    setTimeout(() => {
+        func(...params)
+    }, wait)
 }
 
 // Testing Challenge 6 (tests were not included in the exercise for this challenge)
-const cb = function(...params){ console.log("called!", ...params) };
+const cb = function (...params) { console.log("called!", ...params) };
 //delay(cb, 1000); // "called!" printed after 1000 ms
 //delay(cb, 2000, "param1", "param2"); // "called! param1 param2" printed after 2000 ms
 
 
 // CHALLENGE 7
 function rollCall(names) {
-	let roll = names
-  function caller() {
-    if(roll.length > 0) {
-      console.log(roll.shift())
-    } else {
-      console.log("Everyone accounted for")
+    let roll = names
+    function caller() {
+        if (roll.length > 0) {
+            console.log(roll.shift())
+        } else {
+            console.log("Everyone accounted for")
+        }
     }
-  }
-  
-  return caller
+
+    return caller
 }
 
 // /*** Uncomment these to check your work! ***/
- const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
+const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
 // rollCaller() // => should log 'Victoria'
 // rollCaller() // => should log 'Juan'
 // rollCaller() // => should log 'Ruth'
@@ -153,25 +153,25 @@ function rollCall(names) {
 
 // CHALLENGE 8
 function saveOutput(func, magicWord) {
-	let obj = {}
-  
-  function save(x) {
-    if(x === magicWord){
-    	return obj;  
+    let obj = {}
+
+    function save(x) {
+        if (x === magicWord) {
+            return obj;
+        }
+        else {
+            obj[x] = func(x)
+            return obj[x]
+        }
+
     }
-    else {
-      obj[x] = func(x)
-			return obj[x]
-    }
-    
-  }
-  
-  return save;
+
+    return save;
 }
 
 // /*** Uncomment these to check your work! ***/
- const multiplyBy2 = function(num) { return num * 2; };
- const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
+const multiplyBy2 = function (num) { return num * 2; };
+const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
 // console.log(multBy2AndLog(2)); // => should log 4
 // console.log(multBy2AndLog(9)); // => should log 18
 // console.log(multBy2AndLog('boo')); // => should log { 2: 4, 9: 18 }
@@ -179,51 +179,51 @@ function saveOutput(func, magicWord) {
 
 // CHALLENGE 9
 function cycleIterator(array) {
-	let index = 0
-  function iterate(){
-    let output = array[index % array.length]
-    index++
-    return output
-  }
-  
-  return iterate;
+    let index = 0
+    function iterate() {
+        let output = array[index % array.length];
+        index++;
+        return output
+    }
+
+    return iterate;
 }
 
 // /*** Uncomment these to check your work! ***/
- const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
- const getDay = cycleIterator(threeDayWeekend);
- //console.log(getDay()); // => should log 'Fri'
- //console.log(getDay()); // => should log 'Sat'
- //console.log(getDay()); // => should log 'Sun'
- //console.log(getDay()); // => should log 'Fri'
+const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
+const getDay = cycleIterator(threeDayWeekend);
+//console.log(getDay()); // => should log 'Fri'
+//console.log(getDay()); // => should log 'Sat'
+//console.log(getDay()); // => should log 'Sun'
+//console.log(getDay()); // => should log 'Fri'
 
 
 // CHALLENGE 10
 function defineFirstArg(func, arg) {
 
-  function firstArg(...params){
-    return func(arg, ...params)
-  }
-  
-  return firstArg;
+    function firstArg(...params) {
+        return func(arg, ...params)
+    }
+
+    return firstArg;
 }
 
 // /*** Uncomment these to check your work! ***/
- const subtract = function(big, small) { return big - small; };
- const subFrom20 = defineFirstArg(subtract, 20);
- // console.log(subFrom20(5)); // => should log 15
+const subtract = function (big, small) { return big - small; };
+const subFrom20 = defineFirstArg(subtract, 20);
+// console.log(subFrom20(5)); // => should log 15
 
 
 // CHALLENGE 11
 function dateStamp(func) {
-	function stamp(...params){
-    return {
-      date: (new Date()).toDateString(),
-      output: func(...params)
+    function stamp(...params) {
+        return {
+            date: (new Date()).toDateString(),
+            output: func(...params)
+        }
     }
-  }
-  
-  return stamp;
+
+    return stamp;
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -234,20 +234,20 @@ const stampedMultBy2 = dateStamp(n => n * 2);
 
 // CHALLENGE 12
 function censor() {
-	let list = [];
-  function change(str1, str2){
-    if(str2){
-      list.push({search: str1, replace: str2});
-      return;
-    } else {
-      list.map((item) => {
-        str1 = str1.replace(item.search, item.replace);
-      })
-      return str1;
+    let list = [];
+    function change(str1, str2) {
+        if (str2) {
+            list.push({ search: str1, replace: str2 });
+            return;
+        } else {
+            list.map((item) => {
+                str1 = str1.replace(item.search, item.replace);
+            })
+            return str1;
+        }
     }
-  }
-  
-  return change;
+
+    return change;
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -259,18 +259,18 @@ changeScene('quick', 'slow');
 
 // CHALLENGE 13
 function createSecretHolder(secret) {
-	let privateSecret = secret; 
-  
-  function getSecret() {
-    console.log(privateSecret);
-    return privateSecret;
-  }
-  
-  function setSecret(x){
-    privateSecret = x;
-  }
-  
-  return {getSecret, setSecret}
+    let privateSecret = secret;
+
+    function getSecret() {
+        console.log(privateSecret);
+        return privateSecret;
+    }
+
+    function setSecret(x) {
+        privateSecret = x;
+    }
+
+    return { getSecret, setSecret }
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -282,18 +282,18 @@ const obj = createSecretHolder(5)
 
 // CHALLENGE 14
 function callTimes() {
-	let count = 0;
-  function increment(){
-    count++;
-    console.log(count)
-  }
-  
-  return increment;
+    let count = 0;
+    function increment() {
+        count++;
+        console.log(count)
+    }
+
+    return increment;
 }
 
 // /*** Uncomment these to check your work! ***/
- let myNewFunc1 = callTimes();
- let myNewFunc2 = callTimes();
+let myNewFunc1 = callTimes();
+let myNewFunc2 = callTimes();
 // myNewFunc1(); // => 1
 // myNewFunc1(); // => 2
 // myNewFunc2(); // => 1
@@ -302,110 +302,110 @@ function callTimes() {
 
 // CHALLENGE 15
 function roulette(num) {
-	let n = num;
-  function spin(){
-    if(n > 1) {
-      n--;
-      return "spin";
-    } else if (n == 1) {
-      n--;
-      return "win";
-    } else {
-      return "pick a number to play again";
+    let n = num;
+    function spin() {
+        if (n > 1) {
+            n--;
+            return "spin";
+        } else if (n == 1) {
+            n--;
+            return "win";
+        } else {
+            return "pick a number to play again";
+        }
     }
-  }
-  
-  return spin
+
+    return spin
 }
 
 // /*** Uncomment these to check your work! ***/
- const play = roulette(3);
- //console.log(play()); // => should log 'spin'
- //console.log(play()); // => should log 'spin'
- //console.log(play()); // => should log 'win'
- //console.log(play()); // => should log 'pick a number to play again'
- //console.log(play()); // => should log 'pick a number to play again'
+const play = roulette(3);
+//console.log(play()); // => should log 'spin'
+//console.log(play()); // => should log 'spin'
+//console.log(play()); // => should log 'win'
+//console.log(play()); // => should log 'pick a number to play again'
+//console.log(play()); // => should log 'pick a number to play again'
 
 
 // CHALLENGE 16
 function average() {
-  let numbers = []
+    let numbers = []
 
-  function calc(num){
-    if(num){
-      numbers.push(num)
+    function calc(num) {
+        if (num) {
+            numbers.push(num)
+        }
+
+        let avg = 0
+        if (numbers.length) {
+            avg = numbers.reduce((acc, curr) => acc + curr, 0) / numbers.length
+        }
+        return avg;
     }
-    
-    let avg = 0
-    if(numbers.length) {
-      avg = numbers.reduce((acc, curr) => acc + curr, 0) / numbers.length  
-    }
-    return avg;
-  }
-  
-  return calc
+
+    return calc
 }
 
 // /*** Uncomment these to check your work! ***/
- //const avgSoFar = average();
- //console.log(avgSoFar()); // => should log 0
- //console.log(avgSoFar(4)); // => should log 4
- //console.log(avgSoFar(8)); // => should log 6
- //console.log(avgSoFar()); // => should log 6
- //console.log(avgSoFar(12)); // => should log 8
- //console.log(avgSoFar()); // => should log 8
+//const avgSoFar = average();
+//console.log(avgSoFar()); // => should log 0
+//console.log(avgSoFar(4)); // => should log 4
+//console.log(avgSoFar(8)); // => should log 6
+//console.log(avgSoFar()); // => should log 6
+//console.log(avgSoFar(12)); // => should log 8
+//console.log(avgSoFar()); // => should log 8
 
 
 // CHALLENGE 17
 function makeFuncTester(arrOfTests) {
-  let tests = arrOfTests;
-  
-  function test(func){
-  	let result = true;
-    tests.map((item) => {
-      if(func(item[0]) !== item[1]) {
-        result = false;
-      }
-    })
-    return result;
-  }
-  
-  return test;
+    let tests = arrOfTests;
+
+    function test(func) {
+        let result = true;
+        tests.map((item) => {
+            if (func(item[0]) !== item[1]) {
+                result = false;
+            }
+        })
+        return result;
+    }
+
+    return test;
 }
 
 // /*** Uncomment these to check your work! ***/
- const capLastTestCases = [];
- capLastTestCases.push(['hello', 'hellO']);
- capLastTestCases.push(['goodbye', 'goodbyE']);
- capLastTestCases.push(['howdy', 'howdY']);
- const shouldCapitalizeLast = makeFuncTester(capLastTestCases);
- const capLastAttempt1 = str => str.toUpperCase();
- const capLastAttempt2 = str => str.slice(0, -1) + str.slice(-1).toUpperCase();
- //console.log(shouldCapitalizeLast(capLastAttempt1)); // => should log false
- //console.log(shouldCapitalizeLast(capLastAttempt2)); // => should log true
+const capLastTestCases = [];
+capLastTestCases.push(['hello', 'hellO']);
+capLastTestCases.push(['goodbye', 'goodbyE']);
+capLastTestCases.push(['howdy', 'howdY']);
+const shouldCapitalizeLast = makeFuncTester(capLastTestCases);
+const capLastAttempt1 = str => str.toUpperCase();
+const capLastAttempt2 = str => str.slice(0, -1) + str.slice(-1).toUpperCase();
+//console.log(shouldCapitalizeLast(capLastAttempt1)); // => should log false
+//console.log(shouldCapitalizeLast(capLastAttempt2)); // => should log true
 
 
 // CHALLENGE 18
 function makeHistory(limit) {
-	let history = []
-  
-  function save(str){
-  	if(str === "undo") {
-      if(history.length === 0) {
-        return "nothing to undo";
-      }
-      return `${history.pop()} undone`;
-    } 
-    if (history.length === limit) {
-      history.shift();
+    let history = []
+
+    function save(str) {
+        if (str === "undo") {
+            if (history.length === 0) {
+                return "nothing to undo";
+            }
+            return `${history.pop()} undone`;
+        }
+        if (history.length === limit) {
+            history.shift();
+        }
+
+        history.push(str);
+        return `${str} done`
+
     }
-    
-    history.push(str);
-    return `${str} done`
-    
-  }
-  
-  return save;
+
+    return save;
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -424,38 +424,38 @@ console.log(myActions('undo')); // => should log 'nothing to undo'
 
 // CHALLENGE 19
 function blackjack(array) {
-	let index = 0;
-  
-  function dealer(num1, num2){
-    
-  	let playerSum;
-    let busted = false;
-    
-    function player(){
-      if(!playerSum){
-        playerSum = num1 + num2;
-        return playerSum;
-      }
-      
-      if(playerSum + array[index % array.length] <= 21 ) {
-        playerSum += array[index % array.length]
-        index++;
-        return playerSum;
-      } 
-      
-      if(busted){
-        return "you are done!"
-      }
-      
-      busted = true;
-      index++;
-      return "bust";
+    let index = 0;
+
+    function dealer(num1, num2) {
+
+        let playerSum;
+        let busted = false;
+
+        function player() {
+            if (!playerSum) {
+                playerSum = num1 + num2;
+                return playerSum;
+            }
+
+            if (playerSum + array[index % array.length] <= 21) {
+                playerSum += array[index % array.length]
+                index++;
+                return playerSum;
+            }
+
+            if (busted) {
+                return "you are done!"
+            }
+
+            busted = true;
+            index++;
+            return "bust";
+        }
+
+        return player;
     }
-    
-    return player;
-  }
-  
-  return dealer;
+
+    return dealer;
 }
 
 // /*** Uncomment these to check your work! ***/
