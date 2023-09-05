@@ -1,0 +1,26 @@
+{
+  "name": "react-table-ts",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "keywords": [],
+  "main": "vite.config.js",
+  "type": "module",
+  "scripts": {
+    "start": "vite dev",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tanstack/react-table": "^8.9.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.4",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.9"
+  }
+}
