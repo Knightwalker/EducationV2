@@ -1,53 +1,19 @@
 import { ReactNode } from "react";
 import { 
-    useReactTable, 
-    createColumnHelper,
+    useReactTable,
     flexRender,
-    getCoreRowModel
+    getCoreRowModel,
+    ColumnDef
 } from "@tanstack/react-table";
-import mockData from "../mockData.json";
 import classNames from "./BasicTable.module.css";
 
-type TMockData = {
-    id: number,
-    first_name: string,
-    last_name: string,
-    email: string,
-    phone: string,
-    date: string
-} 
+type TBasicTable<TData> = {
+    columns: ColumnDef<TData, unknown>[],
+    data: TData[]
+}
 
-const columnHelper = createColumnHelper<TMockData>();
-
-const mockColumns = [
-    columnHelper.accessor("id", {
-        header: "Id"
-    }),
-    columnHelper.accessor("first_name", {
-        header: "First Name"
-    }),
-    columnHelper.accessor("last_name", {
-        header: "Last Name"
-    }),
-    columnHelper.accessor("email", {
-        header: "Email"
-    }),
-    columnHelper.accessor("phone", {
-        header: "Phone"
-    }),
-    columnHelper.accessor("date", {
-        header: "Date",
-        cell: (props) => {
-            // This is how we are able to format cell data, before we display it. However this approach requires that we use the function `flexRender()`
-            const value = props.getValue();
-            const date = value.split("/").join("-");
-            return date;
-        }
-    })
-];
-
-const BasicTable = ({ columns = mockColumns, data = mockData }) => {
-    const tableInstance = useReactTable<TMockData>({
+const BasicTable = <TData extends object>({ columns, data }: TBasicTable<TData>) => {
+    const tableInstance = useReactTable<TData>({
         columns: columns,
         data: data,
         getCoreRowModel: getCoreRowModel()
