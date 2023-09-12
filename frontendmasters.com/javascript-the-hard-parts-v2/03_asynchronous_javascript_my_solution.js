@@ -9,43 +9,58 @@ function testMe() {
     console.log('Partnah');
 }
 // After thinking it through, uncomment the following line to check your guess!
-// testMe(); // what order should these log out? Howdy or Partnah first?
+testMe(); // what order should these log out? Howdy or Partnah first?
 
 
 /* CHALLENGE 2 */
 
 function delayedGreet() {
     // ADD CODE HERE
+    setTimeout(function() {
+        console.log("welcome");
+    }, 3000);
 }
 // Uncomment the following line to check your work!
-// delayedGreet(); // should log (after 3 seconds): welcome
+delayedGreet(); // should log (after 3 seconds): welcome
 
 
 /* CHALLENGE 3 */
 
 function helloGoodbye() {
-    // ADD CODE HERE
+    setTimeout(function() {
+        console.log("good bye");
+    }, 3000);
+    console.log("hello");
 }
 // Uncomment the following line to check your work!
-// helloGoodbye(); // should log: hello // should also log (after 3 seconds): good bye
+helloGoodbye(); // should log: hello // should also log (after 3 seconds): good bye
 
 
 /* CHALLENGE 4 */
 
 function brokenRecord() {
-    // ADD CODE HERE
+    setInterval(function() {
+        console.log("hi again")
+    }, 1000)
 }
 // Uncomment the following line to check your work!
-// brokenRecord(); // should log (every second): hi again
+brokenRecord(); // should log (every second): hi again
 
 
 /* CHALLENGE 5 */
 
 function limitedRepeat() {
-    // ADD CODE HERE
+    let count = 0;
+    const id = setInterval(function() {
+        console.log("hi again");
+        count++;
+        if (count >= 5) {
+            clearInterval(id);
+        }
+    }, 1000)
 }
 // Uncomment the following line to check your work!
-// limitedRepeat(); // should log (every second, for 5 seconds): hi for now
+limitedRepeat(); // should log (every second, for 5 seconds): hi for now
 
 
 /* CHALLENGE 6 */
