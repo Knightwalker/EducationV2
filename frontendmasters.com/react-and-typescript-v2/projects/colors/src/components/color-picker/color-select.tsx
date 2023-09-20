@@ -10,7 +10,7 @@ type ColorSelectProps = {
 
 const ColorSelect = ({
   hexColor,
-  label = 'Color',
+  label = "Color",
   onChange,
 }: ColorSelectProps) => {
   return (
