@@ -6,7 +6,7 @@ import NewItem from './new-item';
 import { ItemsContext } from '../context';
 
 const Application = () => {
-    const { items, add, markAllAsUnpacked, update, remove, unpackedItems, packedItems } = useContext(ItemsContext);
+    const { items, add, markAllAsUnpacked, unpackedItems, packedItems } = useContext(ItemsContext);
 
     return (
         <main className="flex flex-col gap-8 p-8 mx-auto lg:max-w-4xl">
@@ -16,14 +16,10 @@ const Application = () => {
                 <ItemList
                     title="Unpacked Items"
                     items={unpackedItems}
-                    update={update}
-                    remove={remove}
                 />
                 <ItemList
                     title="Packed Items"
                     items={packedItems}
-                    update={update}
-                    remove={remove}
                 />
             </section>
             <MarkAllAsUnpacked onClick={markAllAsUnpacked} />

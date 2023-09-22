@@ -13,7 +13,7 @@ type ItemsState = {
     unpackedItems: Item[];
     add: (name: string) => void;
     remove: (id: string) => void;
-    update: (id: string, updates: any) => void;
+    update: (id: string, updates: Omit<Partial<Item>, "id">) => void;
     markAllAsUnpacked: () => void;
 };
 
@@ -27,7 +27,7 @@ const ItemsProvider = ({ children }: PropsWithChildren) => {
         setItems([...items, item]);
     };
 
-    const update = (id: string, updates: any) => {
+    const update = (id: string, updates: Omit<Partial<Item>, "id">) => {
         setItems(updateItem(items, id, updates));
     };
 
@@ -39,7 +39,7 @@ const ItemsProvider = ({ children }: PropsWithChildren) => {
     const packedItems = filterItems(items, { packed: true });
 
     const markAllAsUnpacked = () => {
-        return setItems(items.map((item: Item) => ({ ...item, packed: false })));
+        return setItems(items.map((item) => ({ ...item, packed: false })));
     };
 
     const value: ItemsState = {
