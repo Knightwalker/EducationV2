@@ -9,7 +9,9 @@ yargs(hideBin(process.argv))
             describe: "The content of the note you want to create",
             type: "string"
         })
-    }, async (argv) => {})
+    }, async (argv) => {
+        console.log(argv.note)
+    })
     .option("tags", {
         alias: "t",
         type: "string",
