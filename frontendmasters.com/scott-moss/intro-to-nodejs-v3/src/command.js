@@ -1,6 +1,8 @@
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
+import { insert } from "./controllers/db.js";
+
 yargs(hideBin(process.argv))
     .usage("Usage: note <command> [options]")
     .scriptName("note")
@@ -10,7 +12,7 @@ yargs(hideBin(process.argv))
             type: "string"
         })
     }, async (argv) => {
-        console.log(argv.note)
+        // insert()
     })
     .option("tags", {
         alias: "t",
