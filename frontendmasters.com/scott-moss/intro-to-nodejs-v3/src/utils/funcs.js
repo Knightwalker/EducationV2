@@ -1,12 +1,10 @@
-const count = (num) => {
-    return num;
-};
-
-const somethingElse = () => {
-    return "something else";
+const listNotes = (notes) => {
+    notes.forEach(note => {
+        console.log("");
+        console.log("id: ", note.id);
+        console.log("tags: ", note.tags.join(", "));
+        console.log("note: ", note.content);
+    });
 }
 
-export { 
-    count,
-    somethingElse
-}
+export { listNotes }
