@@ -1,5 +1,15 @@
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
+import { newNote } from "./controllers/notesController.js";
+
+const listNotes = (notes) => {
+    notes.forEach(note => {
+        console.log("\n");
+        console.log("id: ", note.id);
+        console.log("tags: ", note.tags.join(", "));
+        console.log("note: ", note.content);
+    })
+}
 
 yargs(hideBin(process.argv))
     .usage("Usage: note <command> [options]")
@@ -10,7 +20,9 @@ yargs(hideBin(process.argv))
             type: "string"
         })
     }, async (argv) => {
-        // insert()
+        const tags = argv.tags ? argv.tags.split(",") : []
+        const note = await newNote(argv.note, tags);
+        console.log("Note added!", note.id);
     })
     .option("tags", {
         alias: "t",

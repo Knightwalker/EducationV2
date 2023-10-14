@@ -1,4 +1,4 @@
-import { saveDB, getDB, insertDB } from "../services/dbService";
+import { saveDB, getDB, insertDB } from "../services/dbService.js";
 
 const newNote = async (note, tags) => {
     const newNote = {
@@ -17,7 +17,30 @@ const getAllNotes = async () => {
     return notes;
 }
 
+const findNotes = async (filter) => {
+    const notes = await getAllNotes();
+    return notes.filter(note => note.content.toLowerCase().includes(filter.toLowerCase()))
+}
+
+const removeNote = async (id) => {
+    const notes = await getAllNotes();
+    const match = notes.find(note => note.id === id);
+
+    if (match) {
+        const newNotes = notes.filter(note => note.id !== id);
+        await saveDB({ notes: newNotes });
+        return id;
+    }
+}
+
+const removeAllNotes = async () => {
+    await saveDB({ notes: []});
+}
+
 export {
     newNote,
-    getAllNotes
+    getAllNotes,
+    findNotes,
+    removeNote,
+    removeAllNotes
 }
