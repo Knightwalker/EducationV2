@@ -2,9 +2,9 @@ import { saveDB, getDB, insertDB } from "../services/dbService.js";
 
 const newNote = async (note, tags) => {
     const newNote = {
-        tags: tags,
+        id: Date.now(),
         content: note,
-        id: Date.now()
+        tags: tags
     }
 
     await insertDB(newNote);
