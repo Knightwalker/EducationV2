@@ -2,6 +2,7 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { newNote, getAllNotes, findNotes, removeNote, removeAllNotes } from "./controllers/notesController.js";
 import { listNotes } from "./utils/funcs.js";
+import { startServer } from "./server.js";
 
 yargs(hideBin(process.argv))
     .usage("Usage: note <command> [options]")
@@ -59,7 +60,8 @@ yargs(hideBin(process.argv))
                 type: "number"
             })
     }, async (argv) => {
-        
+        const notes = await getAllNotes();
+        startServer(notes, argv.port);
     })
     .demandCommand(1)
     .parse()
