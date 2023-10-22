@@ -1,0 +1,35 @@
+{
+    "exclude": ["node_modules/*"],
+    "compilerOptions": {
+        /* Type Checking */
+        "strict": true,
+        "noImplicitAny": false,
+        
+        /* Interop Constraints */
+        // "allowSyntheticDefaultImports": true, // `true` if `esModuleInterop` is `enabled`, `module` is `system`, or `moduleResolution` is `bundler`; `false` otherwise.
+        "esModuleInterop": true,
+        // "forceConsistentCasingInFileNames": true,
+
+        /* Modules */
+        "module": "ES2022",
+        "moduleResolution": "Bundler",
+        "resolveJsonModule": true,
+        "paths": {
+            "@/*": ["./src/*"],
+            "@assets/*": ["./src/assets/*"],
+            "@components/*": ["./src/components/*"],
+            "@pages/*": ["./src/pages/*"],
+            "@services/*": ["./src/services/*"]
+        },
+        
+        /* Language and Environment */
+        "target": "ES2022",
+        "jsx": "react-jsx",
+
+        /* Emit */
+        "noEmit": true,
+        
+        /* Completeness */
+        "skipLibCheck": true 
+    }
+}
