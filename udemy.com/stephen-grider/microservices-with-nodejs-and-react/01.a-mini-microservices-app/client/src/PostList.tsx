@@ -2,9 +2,15 @@ import { useEffect, useState } from "react";
 import CommentCreate from "./CommentCreate";
 import CommentList from "./CommentList";
 
+type TComment = {
+    id: string,
+    content: string
+}
+
 type TPost = {
     id: string,
-    title: string
+    title: string,
+    comments: TComment[]
 }
 
 const PostList = () => {
@@ -12,7 +18,7 @@ const PostList = () => {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const res = await fetch("http://localhost:4000/posts", {
+            const res = await fetch("http://localhost:4002/posts", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -34,7 +40,7 @@ const PostList = () => {
             >
                 <div className="card-body">
                     <h3>{post.title}</h3>
-                    <CommentList postId={post.id} />
+                    <CommentList comments={post.comments} />
                     <CommentCreate postId={post.id} />
                 </div>
             </div>

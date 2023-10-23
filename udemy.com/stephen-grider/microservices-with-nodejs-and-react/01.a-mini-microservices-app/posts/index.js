@@ -28,13 +28,17 @@ app.post("/posts", async (req, res) => {
         data: posts[id]
     }
 
-    await fetch("http://localhost:4005/events", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(event)
-    });
+    try {
+        await fetch("http://localhost:4005/events", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(event)
+        });
+    } catch (err) {
+        console.log("POST MICROSERVICE(4000) - ERROR")
+    }
 
     res.status(201).send(posts[id]);
 });
