@@ -17,21 +17,41 @@ app.get("/posts/:id/comments", (req, res) => {
     res.status(200).send(comments);
 });
 
-app.post("/posts/:id/comments", (req, res) => {
+app.post("/posts/:id/comments", async (req, res) => {
     const commentId = randomUUID();
     const postId = req.params.id;
     const { content } = req.body;
 
-    const comments = commentsByPostId[postId] || [];
-    comments.push({
+    const comment = {
         id: commentId,
-        content: content
-    });
+        content: content,
+        postId: postId
+    }
+
+    const comments = commentsByPostId[postId] || [];
+    comments.push(comment);
     commentsByPostId[postId] = comments;
+
+    const event = {
+        type: "CommentCreated",
+        data: comment
+    }
+
+    await fetch("http://localhost:4005/events", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(event)
+    });
 
     res.status(201).send(comments);
 });
 
+app.post("/events", (req, res) => {
+    console.log("Received Event", req.body.type);
+});
+
 app.listen(4001, () => {
     console.log("Listening on 4001");
-})
+});
