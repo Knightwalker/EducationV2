@@ -31,12 +31,19 @@ app.post("/events", async (req, res) => {
         },
         body: JSON.stringify(event)
     });
+    const p4 = fetch("http://localhost:4003/events", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(event)
+    });
 
     try {
-        const response = await Promise.all([p1, p2, p3]);
-        console.log("event-bus SUCCESS");
+        const response = await Promise.all([p1, p2, p3, p4]);
+        console.log("SUCCESS");
     } catch(err) {
-        console.log("event-bus ERROR");
+        console.log("ERROR");
     }
 
     res.status(200).send("OK");

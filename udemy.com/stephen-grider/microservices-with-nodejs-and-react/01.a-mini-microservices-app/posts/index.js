@@ -29,15 +29,16 @@ app.post("/posts", async (req, res) => {
     }
 
     try {
-        await fetch("http://localhost:4005/events", {
+        const response = await fetch("http://localhost:4005/events", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(event)
         });
+        console.log("SUCCESS")
     } catch (err) {
-        console.log("POST MICROSERVICE(4000) - ERROR")
+        console.log("ERROR")
     }
 
     res.status(201).send(posts[id]);
@@ -45,6 +46,8 @@ app.post("/posts", async (req, res) => {
 
 app.post("/events", (req, res) => {
     console.log("Received Event", req.body.type);
+
+    res.status(200).send("OK");
 });
 
 app.listen(4000, () => {

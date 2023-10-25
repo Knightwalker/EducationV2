@@ -4,7 +4,7 @@ import cors from "cors";
 
 const app = express();
 app.use(cors({
-     origin: "http://localhost:3000"
+    origin: "http://localhost:3000"
 }));
 app.use(express.json());
 
@@ -25,7 +25,8 @@ app.post("/posts/:id/comments", async (req, res) => {
     const comment = {
         id: commentId,
         content: content,
-        postId: postId
+        postId: postId,
+        status: "pending"
     }
 
     const comments = commentsByPostId[postId] || [];
@@ -37,19 +38,55 @@ app.post("/posts/:id/comments", async (req, res) => {
         data: comment
     }
 
-    await fetch("http://localhost:4005/events", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(event)
-    });
+    try {
+        const response = await fetch("http://localhost:4005/events", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(event)
+        });
+        console.log("Created Comment: SUCCESS");
+    } catch (err) {
+        console.log("Created Comment: ERROR");
+    }
 
     res.status(201).send(comments);
 });
 
-app.post("/events", (req, res) => {
+app.post("/events", async (req, res) => {
     console.log("Received Event", req.body.type);
+    const { type, data } = req.body;
+
+    if (type === "CommentModerated") {
+        const { id, postId, content, status } = data;
+
+        const comments = commentsByPostId[postId];
+        const comment = comments.find((x) => {
+            return x.id === id;
+        });
+        comment.status = status;
+
+        const event = {
+            type: "CommentUpdated",
+            data: comment
+        }
+
+        try {
+            const response = await fetch("http://localhost:4005/events", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(event)
+            });
+            console.log("SUCCESS");
+        } catch (err) {
+            console.log("ERROR");
+        }
+    }
+
+    res.status(200).send("OK");
 });
 
 app.listen(4001, () => {
