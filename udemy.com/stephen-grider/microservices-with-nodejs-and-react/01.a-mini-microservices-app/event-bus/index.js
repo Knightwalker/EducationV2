@@ -7,8 +7,12 @@ app.use(cors({
 }));
 app.use(express.json());
 
+const events = [];
+
 app.post("/events", async (req, res) => {
     const event = req.body;
+
+    events.push(event);
 
     const p1 = fetch("http://localhost:4000/events", {
         method: "POST",
@@ -47,6 +51,10 @@ app.post("/events", async (req, res) => {
     }
 
     res.status(200).send("OK");
+});
+
+app.get("/events", (req, res) => {
+    res.send(events);
 });
 
 app.listen(4005, () => {
