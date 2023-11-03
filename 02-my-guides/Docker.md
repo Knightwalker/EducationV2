@@ -36,4 +36,6 @@
     - **Usage:** `docker exec [flags] <image_id | image_tag> [cmd]`
 - `docker images` List all images
 - `docker ps` List all running containers
+- `docker stop` Stop one or more running containers
+- `docker kill` Kill one or more running containers
 - `docker logs` Print out logs from the given container
