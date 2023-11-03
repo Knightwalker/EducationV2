@@ -22,13 +22,18 @@
 **Usage:** `docker [OPTIONS] COMMAND`
 **Common Commands:**
 - `build` Build an image from a Dockerfile. 
-    - **Usage:** `docker build <flags> <source>`
+    - **Usage:** `docker build [flags] <source>`
     - `docker build .` Build an unnamed image based from a Dockerfile in the current directory.
     - `docker build -t knightwalker/app .` Build an image based from a Dockerfile in the current directory. Tag it as `Knightwalker/app`
 - `run` Create and run a new container from an image
-    - **Usage:** `docker run <flags> <image_id | tag_name>`
-    - `docker run -i -t 17c8b5e61bb9` or `docker run -it 17c8b5e61bb9` to run a container. The -i and -t flags are optional and are used when you want to run a shell or a command-line tool inside the container and interact with it.
-    - `docker run -it 17c8b5e61bb9 sh` to run a container and enter the `sh` terminal
-    - `docker run -it Knightwalker/app`
-- `docker images` - List all images
-- `docker ps` - List all running containers
+    - **Usage:** `docker run [flags] <image_id | image_tag> [cmd]`
+        - `<image_id>` or `<image_tag>` is mandatory.
+        - `[flags]` optionally add flags, like -i and -t flags, often written as `-it`, are used when you want to run a shell or a command-line tool inside the container and interact with it.
+        - `[cmd]` optionally override the default command with (if such a command exists).
+    - `docker run -i -t 17c8b5e61bb9` or `docker run -it knightwalker/app` to run a container from image and interact with it.
+    - `docker run -it 17c8b5e61bb9 sh` to run a container from image and override the default command to instead enter the `sh` terminal.
+- `docker exec` Execute a command in a running container
+    - **Usage:** `docker exec [flags] <image_id | image_tag> [cmd]`
+- `docker images` List all images
+- `docker ps` List all running containers
+- `docker logs` Print out logs from the given container
