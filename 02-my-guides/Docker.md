@@ -1,13 +1,16 @@
 
 ### 01.Installation
 **Revised on:** 2023.10.31
-**Versions:** Docker Desktop 4.25.0
+**Versions:** Docker Desktop 4.25.0, Kubernetes v1.28.2
 
 #### 01.1.Windows
 - Download `Docker Desktop Installer.exe` for `Windows` from `Docker.com`
 - Turn on the WSL 2 feature on Windows
 - Using `cmd` terminal, run `start /w "" "Docker Desktop Installer.exe" install --installation-dir=C:\Programs\Docker\Docker` to install Docker Desktop and also change the default installation location. The installer will not offer this choice.
 - After installation run `docker --version` to confirm success.
+
+**Kubernetes**
+You can optionally enable Kubernetes by opening Docker Hub -> Settings -> Kubernetes -> Enable Kubernetes -> Apply & restart. This will begin installing Kubernetes and thats all there is to it on Windows.
 
 #### Build an image from Dockerfile
 - After creating a `Dockerfile` file in the root directory of your project, with `cmd` terminal you can run `docker build .` to create an unnamed image or `docker build -t knightwalker/app .` to create a tagged image.
@@ -18,7 +21,7 @@
 - To run a container from image, and allow traffic from a specific port on your PC to a specific port in the docker container use the following syntax `docker run -p <port1>:<port2> <image_id | image_tag>`, where port1 will accept incoming requests on local host and route them to port2 inside the container.
 - For example, run `docker run -it -p 5000:5000 knightwalker/app`
 
-#### Docker CLI
+### Docker CLI
 **Usage:** `docker [OPTIONS] COMMAND`
 **Common Commands:**
 - `build` Build an image from a Dockerfile. 
