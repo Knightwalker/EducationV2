@@ -33,3 +33,20 @@ Now you can proceed to creating a pod, which will run the container.
 - `kubectl get [type] <name>` Display one or many resources
     - `kubectl get pods` Display all resources
 - `kubectl logs <name>` Print the logs for a container in a pod
+
+#### Aliases
+The process to configure terminal aliases will differ between OS'es and terminals.
+
+**GitBash**
+If you installed Git for Windows from https://git-scm.com/download/win then you need to search for `aliases.sh` file, which is located in the installation directory (of your choice). Mine was in `C:\Programs\Git\etc\profile.d\aliases.sh`. The downside of this approach is that the file will be overwriten if you update your Git and you will have to re-configure.
+
+Then you can add the following aliases:
+```bash
+# Kubernetes aliases
+alias k='kubectl'
+alias kg='kubectl get'
+alias kd='kubectl describe'
+alias kc='kubectl create'
+alias ka='kubectl apply'
+alias kex='kubectl exec -it'` what are for d ocker?
+```

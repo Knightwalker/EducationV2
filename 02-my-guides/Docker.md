@@ -42,3 +42,22 @@ You can optionally enable Kubernetes by opening Docker Hub -> Settings -> Kubern
 - `docker stop` Stop one or more running containers
 - `docker kill` Kill one or more running containers
 - `docker logs` Print out logs from the given container
+
+#### Aliases
+The process to configure terminal aliases will differ between OS'es and terminals.
+
+**GitBash**
+If you installed Git for Windows from https://git-scm.com/download/win then you need to search for `aliases.sh` file, which is located in the installation directory (of your choice). Mine was in `C:\Programs\Git\etc\profile.d\aliases.sh`. The downside of this approach is that the file will be overwriten if you update your Git and you will have to re-configure.
+
+Then you can add the following aliases:
+```bash
+# Docker aliases
+alias d='docker'
+alias dps='docker ps'
+alias dimages='docker images'
+alias drun='docker run'
+alias dexec='docker exec -it'
+alias dbuild='docker build'
+alias dstop='docker stop'
+alias drmi='docker rmi'
+```
