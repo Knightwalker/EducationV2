@@ -52,6 +52,18 @@ Now you can proceed to creating a deployment
 - run `kubectl get deployment posts-depl` to display status of the posts-depl deployment.
 - run `kubectl get deployments` to display status of all deployments.
 
+Updating the Image Used By a Deployment
+- Method 1
+    - Make a change in your project code
+    - Rebuild the image, specifying a new image version
+    - In the deployment config file, update the version of the image
+    - Run `kubectl apply -f [depl_file_name]`
+- Method 2 (Preferred)
+    - Make a change in your project code
+    - Rebuild the image, using the `latest` tag. 
+    - The deployment config should be pre-configured to also use the `latest` tag in the pod spec section
+    - Run `kubectl rollout restart deployment [depl_name]`
+
 ### Kubernetes CLI
 **Syntax:** `kubectl [command] [TYPE] [NAME] [flags]`
 **Commands:**
