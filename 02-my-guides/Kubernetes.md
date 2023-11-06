@@ -4,11 +4,12 @@ Lets imagine that we have a Docker image `knightwalker/posts` and we know that w
 Create the following filesystem structure.
 ```
 infra/
-  ├── k8s/           # Kubernetes configuration files
-  │   └── posts.yaml # YAML definitions for Kubernetes resources related to Posts container.
+  ├── k8s/                 # Kubernetes configuration files
+  │   └── posts.yaml       # YAML definitions for Kubernetes resources related to Posts container.
+  │   └── posts-depl.yaml  # Additional YAML definitions for the Posts deployment.
 ```
 
-Write the following YALM configuration in **posts.yaml**. Identation is very important, it should be 2 spaces, so 1 tab should also be 2 spaces.
+First create a pod config. Write the following YALM configuration in **posts.yaml**. Identation is very important, it should be 2 spaces, so 1 tab should also be 2 spaces.
 ```yaml
 apiVersion: v1        # k8s is extensible, we can add in our own custom objects. This specifies the set of objects we want k8s to look at.
 kind: Pod             # Type of object we want to create
@@ -23,6 +24,33 @@ spec:                 # The exact attributes we want to apply to the object we a
 Now you can proceed to creating a pod, which will run the container.
 - run `kubectl apply -f posts.yaml` to create a pod.
 - run `kubectl get pod posts` to display status of the posts pod.
+- run `kubectl get pods` to display status of all pods.
+
+Next create a deployment config. Write the following YALM configuration in **posts-depl.yaml**
+```yaml
+apiVersion: apps/v1   # k8s is extensible, we can add in our own custom objects. This specifies the set of objects we want k8s to look at.
+kind: Pod             # Type of object we want to create
+metadata:             # Metadata for the object we are about to create
+  name: posts-depl    # When a deployment is created, give it a name of "posts-depl"
+spec:                 # The exact attributes we want to apply to the object we are about to create
+  replicas: 1
+  selector:
+    matchLabels:
+      app: posts
+  template:
+    metadata:
+      labels:
+        app: posts
+    spec:
+      containers:
+        - name: posts
+          image: knightwalker/posts:0.0.1
+```
+
+Now you can proceed to creating a deployment
+- run `kubectl apply -f posts-depl.yaml` to create a deployment.
+- run `kubectl get deployment posts-depl` to display status of the posts-depl deployment.
+- run `kubectl get deployments` to display status of all deployments.
 
 ### Kubernetes CLI
 **Syntax:** `kubectl [command] [TYPE] [NAME] [flags]`
@@ -33,6 +61,12 @@ Now you can proceed to creating a pod, which will run the container.
 - `kubectl get [type] <name>` Display one or many resources
     - `kubectl get pods` Display all resources
 - `kubectl logs <name>` Print the logs for a container in a pod
+
+**Deployment Commands:**
+- `kubectl get deployments` List all running deployments
+- `kubectl describe deployments [depl_name]` Print details about a specific deployment
+- `kubectl apply -f [config_file_name]` Create a deployment from .yaml file.
+- `kubectl delete deployment [depl_name]` Delete a deployment
 
 #### Aliases
 The process to configure terminal aliases will differ between OS'es and terminals.
