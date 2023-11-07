@@ -1,5 +1,5 @@
-#### Create a pod for Docker container
-Lets imagine that we have a Docker image `knightwalker/posts` and we know that we can create containers from an image. If we would like to create a pod for those containers, we need to create a kubernetes pod configuration.
+#### Orchestrating Collections of Services with Kubernetes
+Lets imagine that we have a Docker image, named `knightwalker/posts` and we know that we can create containers from an image. If we would like to create a pod for those containers, we need to create a kubernetes pod configuration.
 
 Create the following filesystem structure.
 ```
@@ -9,7 +9,7 @@ infra/
   │   └── posts-depl.yaml  # Additional YAML definitions for the Posts deployment.
 ```
 
-First create a pod config. Write the following YALM configuration in **posts.yaml**. Identation is very important, it should be 2 spaces, so 1 tab should also be 2 spaces.
+**Step 1:** Create a pod config. Write the following .yaml configuration in **posts.yaml**. Identation is very important, it should be 2 spaces, so 1 tab should also be 2 spaces.
 ```yaml
 apiVersion: v1        # k8s is extensible, we can add in our own custom objects. This specifies the set of objects we want k8s to look at.
 kind: Pod             # Type of object we want to create
@@ -21,12 +21,12 @@ spec:                 # The exact attributes we want to apply to the object we a
       image: knightwalker/posts:0.0.1 # The exact Docker image we want to use
 ```
 
-Now you can proceed to creating a pod, which will run the container.
+Then create a pod, which will run the container.
 - run `kubectl apply -f posts.yaml` to create a pod.
 - run `kubectl get pod posts` to display status of the posts pod.
 - run `kubectl get pods` to display status of all pods.
 
-Next create a deployment config. Write the following YALM configuration in **posts-depl.yaml**
+**Step 2:** Create a deployment config. Write the following .yaml configuration in **posts-depl.yaml**
 ```yaml
 apiVersion: apps/v1   # k8s is extensible, we can add in our own custom objects. This specifies the set of objects we want k8s to look at.
 kind: Pod             # Type of object we want to create
@@ -47,12 +47,12 @@ spec:                 # The exact attributes we want to apply to the object we a
           image: knightwalker/posts:0.0.1
 ```
 
-Now you can proceed to creating a deployment
+Then creating a deployment
 - run `kubectl apply -f posts-depl.yaml` to create a deployment.
 - run `kubectl get deployment posts-depl` to display status of the posts-depl deployment.
 - run `kubectl get deployments` to display status of all deployments.
 
-Updating the Image Used By a Deployment
+**Step 3:** Updating the Image Used By a Deployment
 - Method 1
     - Make a change in your project code
     - Rebuild the image, specifying a new image version
@@ -71,11 +71,12 @@ Updating the Image Used By a Deployment
 - `kubectl apply -f myfile.yaml` Create a pod from .yaml file. 
 - `kubectl exec [flags] <name> [cmd]` Execute a command against a container in a pod
 - `kubectl get [type] <name>` Display one or many resources
-    - `kubectl get pods` Display all resources
+    - `kubectl get pods` List all pods
+    - `kubectl get deployments` List all deployments
+    - `kubectl get services` List all services
 - `kubectl logs <name>` Print the logs for a container in a pod
 
 **Deployment Commands:**
-- `kubectl get deployments` List all running deployments
 - `kubectl describe deployments [depl_name]` Print details about a specific deployment
 - `kubectl apply -f [config_file_name]` Create a deployment from .yaml file.
 - `kubectl delete deployment [depl_name]` Delete a deployment
