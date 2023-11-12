@@ -29,22 +29,23 @@ Then create a pod, which will run the container.
 **Step 2:** Create a deployment config. Write the following .yaml configuration in **posts-depl.yaml**
 ```yaml
 apiVersion: apps/v1   # k8s is extensible, we can add in our own custom objects. This specifies the set of objects we want k8s to look at.
-kind: Pod             # Type of object we want to create
+kind: Deployment      # Type of object we want to create
 metadata:             # Metadata for the object we are about to create
-  name: posts-depl    # When a deployment is created, give it a name of "posts-depl"
+  name: posts-depl    # Your deployment name
 spec:                 # The exact attributes we want to apply to the object we are about to create
-  replicas: 1
+  replicas: 1         # The number of pods/replicas to run
   selector:
     matchLabels:
-      app: posts
+      app: posts      # Selector to match the pod
   template:
     metadata:
       labels:
-        app: posts
+        app: posts    # Name your pod
     spec:
-      containers:
-        - name: posts
-          image: knightwalker/posts:0.0.1
+      containers:                           
+        - name: posts                        # Add the container name for Kubernetes
+          image: knightwalker/posts:0.0.1    # Add the local image name
+          imagePullPolicy: Never             # Never pull the image policy. This will ensure Kubernetes uses locally built images instead of trying to pull them remotely from the Docker Hub registry.
 ```
 
 Then creating a deployment
@@ -52,7 +53,32 @@ Then creating a deployment
 - run `kubectl get deployment posts-depl` to display status of the posts-depl deployment.
 - run `kubectl get deployments` to display status of all deployments.
 
-**Step 3:** Updating the Image Used By a Deployment
+**Step 3:** Create a service config. Write the following .yaml configuration in **posts-srv.yaml**
+```yaml
+apiVersion: v1
+kind: Service          # Type of object we want to create
+metadata:
+  name: posts-srv      # Your service name
+spec:
+  type: NodePort       # Type of service. Default is ClusterIP
+  selector:
+    app: posts         # Selector that matches the pod
+  ports:
+    - name: posts
+      protocol: TCP
+      port: 4000       # Port for exposing the service 
+      targetPort: 4000 # Port for exposing the pod
+      nodePort: 34000  # Port for exposing the node. Default is random port from the high port range (typically 30000-32767) 
+```
+
+Then create a service
+- run `kubectl apply -f posts-srv.yaml` to create a service.
+- run `kubectl get service posts-srv` to display status of the posts-srv service.
+- run `kubectl get services` to display status of all services.
+
+You should be able to visit your app at `localhost:34000`
+
+**Extra:** Updating the Image Used By a Deployment
 - Method 1
     - Make a change in your project code
     - Rebuild the image, specifying a new image version
