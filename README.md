@@ -14,10 +14,11 @@ The repository has the following directory structure.
 
 ```
 EducationV2/
-├── frontendmasters.com/
-│   ├── course/ (Contains a single course)
-│   │   ├── projects/ (Contains all projects for a single course)
-│   │   ├── resources/ (Contains all resources for a single course)
+├── [website_name]/ (Directory for each website. Should be a domain name + tld, e.g. frontendmasters.com)
+│   ├── [teacher_name]/ (Directory for each teacher. Should be a hyphen delimited string)
+│   │   ├── course/ (Directory for a single course)
+│   │   │   ├── projects/ (Contains all projects for a single course)
+│   │   │   ├── resources/ (Contains all resources for a single course)
 ```
 
 ## III. Contributing
