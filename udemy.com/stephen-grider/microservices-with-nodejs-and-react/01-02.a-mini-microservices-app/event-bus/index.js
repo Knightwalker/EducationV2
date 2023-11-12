@@ -14,37 +14,38 @@ app.post("/events", async (req, res) => {
 
     events.push(event);
 
-    const p1 = fetch("http://localhost:4000/events", {
+    const p1 = fetch("http://posts-srv:4000/events", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(event)
     });
-    const p2 = fetch("http://localhost:4001/events", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(event)
-    });
-    const p3 = fetch("http://localhost:4002/events", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(event)
-    });
-    const p4 = fetch("http://localhost:4003/events", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(event)
-    });
+    // const p2 = fetch("http://localhost:4001/events", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify(event)
+    // });
+    // const p3 = fetch("http://localhost:4002/events", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify(event)
+    // });
+    // const p4 = fetch("http://localhost:4003/events", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify(event)
+    // });
 
     try {
-        const response = await Promise.all([p1, p2, p3, p4]);
+        const response = await Promise.all([p1]);
+        // const response = await Promise.all([p1, p2, p3, p4]);
         console.log("SUCCESS");
     } catch(err) {
         console.log("ERROR");
