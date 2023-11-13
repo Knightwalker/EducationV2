@@ -54,7 +54,7 @@ app.post("/events", (req, res) => {
 app.listen(4002, async () => {
     console.log("Listening on 4002");
 
-    const response = await fetch("http://localhost:4005/events", {
+    const response = await fetch("http://event-bus-srv:4005/events", {
         method: "GET",
         headers: {
             "Content-Type": "application/json"

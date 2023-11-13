@@ -23,7 +23,7 @@ app.post("/events", async (req, res) => {
         }
 
         try {
-            const response = await fetch("http://localhost:4005/events", {
+            const response = await fetch("http://event-bus-srv:4005/events", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
