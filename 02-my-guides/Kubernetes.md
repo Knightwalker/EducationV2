@@ -94,13 +94,17 @@ You should be able to visit your app at `localhost:34000`
 **Syntax:** `kubectl [command] [TYPE] [NAME] [flags]`
 **Commands:**
 - `kubectl apply` Apply a configuration change to a resource from a file or stdin.
-- `kubectl apply -f myfile.yaml` Create a pod from .yaml file. 
+    - `kubectl apply -f myfile.yaml` Apply a configuration from .yaml file.
+    - `kubectl apply -f .` Apply all configurations from .yaml files in the current directory. 
 - `kubectl exec [flags] <name> [cmd]` Execute a command against a container in a pod
 - `kubectl get [type] <name>` Display one or many resources
     - `kubectl get pods` List all pods
     - `kubectl get deployments` List all deployments
     - `kubectl get services` List all services
+    - `kubectl get namespaces` List all namespaces. The default namespace is named "default"
 - `kubectl logs <name>` Print the logs for a container in a pod
+- `kubectl delete --all <resource-type> -n <namespace>` Deletes all resources in a namespace
+- `kubectl delete --all deployments,services -n default` Deletes all deployments and services in the default namespace
 
 **Deployment Commands:**
 - `kubectl describe deployments [depl_name]` Print details about a specific deployment
