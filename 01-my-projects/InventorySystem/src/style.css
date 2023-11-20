@@ -14,7 +14,7 @@ body {
     --inventoryGap: 2px;
 }
 
-#inventory {
+.inventory {
     display: grid;
     grid-template-columns: repeat(var(--inventoryCols), 1fr);
     grid-template-rows: repeat(var(--inventoryRows), 1fr);

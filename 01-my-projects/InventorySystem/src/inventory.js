@@ -1,20 +1,38 @@
 const debugMode = true;
 
 class Inventory {
-    constructor() {
+    constructor({ containerId, inventorySize = 10 }) {
         this.inventoryDict = {};
-        this.inventorySize = 10;
-        this.inventoryEl = document.getElementById("inventory");
+        this.inventorySize = inventorySize;
+        this.inventoryEl = null;
         this.draggedItemEl = null;
+        this.containerEl = null;
+        this.#init(containerId);
     }
+
+    /**
+     * @private
+     */
+    #init(containerId) {
+        this.inventoryEl = document.createElement("div");
+        this.inventoryEl.classList.add("inventory");
+        this.containerEl = document.getElementById(containerId);
+        this.containerEl.appendChild(this.inventoryEl);
+
+        // Seed data
+        this.inventoryDict["0"] = { itemId: "0", name: "sandwich", slotId: "3" };
+        this.inventoryDict["1"] = { itemId: "1", name: "water bottle", slotId: "0" };
+        this.render();
+    };
 
     /**
      * This function applies a CSS trick, which helps fix a bug where when you drag an item over another item, events are being fired, which bubble from the item child to the slot, but while dragging, we would like for the items to NOT fire any events. This block will be added for all items except the currently dragged item.
      * @param {string} rule either `block` or `unblock` 
+     * @private
      */
-    _blockItemsPointerEvents(rule) {
+    #blockItemsPointerEvents(rule) {
         const itemEls = this.inventoryEl.querySelectorAll(".item");
-        
+
         if (rule === "block") {
             for (const itemEl of itemEls) {
                 // The equals operator is checking if those elements point to the same object in memory.
@@ -32,7 +50,10 @@ class Inventory {
         }
     }
 
-    handleDragStart(event) {
+    /**
+     * @private
+     */
+    #handleDragStart(event) {
         // We use "event.target" to reference the item element, since the event only fires on a draggable item and the target will always be the item element.
         const itemEl = event.target;
         itemEl.classList.add("dragging");
@@ -46,7 +67,7 @@ class Inventory {
         });
 
         // Visual: apply effects
-        this._blockItemsPointerEvents("block");
+        this.#blockItemsPointerEvents("block");
 
         // DTO
         const payload = JSON.stringify({
@@ -60,14 +81,17 @@ class Inventory {
         }
     }
 
-    handleDragEnd(event) {
+    /**
+     * @private
+     */
+    #handleDragEnd(event) {
         // We use "event.target" to reference the item element, since the event only fires on a draggable item and the target will always be the item element.
         const itemEl = event.target;
         itemEl.classList.remove("dragging");
         itemEl.classList.remove("hidden");
 
         // Visual: clear effects
-        this._blockItemsPointerEvents("unblock");
+        this.#blockItemsPointerEvents("unblock");
 
         // If a drop failed, clear the ref. on the dragged element.
         if (this.draggedItemEl !== null) {
@@ -79,7 +103,10 @@ class Inventory {
         }
     }
 
-    handleDragOver(event) {
+    /**
+     * @private
+     */
+    #handleDragOver(event) {
         // Guard (whitelist method): Allows this function to work only with dragged element, referenced in "draggedItemEl". This prevents the function to work with other elements or text selections, which still fire the "dragover" event.
         if (this.draggedItemEl === null) {
             return;
@@ -94,7 +121,10 @@ class Inventory {
         // }
     }
 
-    handleDragEnter(event) {
+    /**
+     * @private
+     */
+    #handleDragEnter(event) {
         // Guard (whitelist method): Allows this function to work only with dragged element, referenced in "draggedItemEl". This prevents the function to work with other elements or text selections, which still fire the "dragover" event.
         if (this.draggedItemEl === null) {
             return;
@@ -108,7 +138,10 @@ class Inventory {
         }
     }
 
-    handleDragLeave(event) {
+    /**
+     * @private
+     */
+    #handleDragLeave(event) {
         // Guard (whitelist method): Allows this function to work only with dragged element, referenced in  "draggedItemEl". This prevents the function to work with other elements or text selections, which still fire the "dragover" event.
         if (this.draggedItemEl === null) {
             return;
@@ -122,7 +155,10 @@ class Inventory {
         }
     }
 
-    handleDrop(event) {
+    /**
+     * @private
+     */
+    #handleDrop(event) {
         // Guard (whitelist method): Allows this function to work only with dragged element, referenced in "draggedItemEl". This prevents the function to work with other elements or text selections, which still fire the "drop" event.
         if (this.draggedItemEl === null) {
             return;
@@ -167,10 +203,8 @@ class Inventory {
         }
     }
 
-    init() {
-        // Seed data
-        this.inventoryDict["0"] = { itemId: "0", name: "sandwich", slotId: "3" };
-        this.inventoryDict["1"] = { itemId: "1", name: "water bottle", slotId: "0" };
+    render() {
+        this.inventoryEl.innerHTML = "";
 
         // Generate inventory slots
         for (let i = 0; i < this.inventorySize; i++) {
@@ -179,15 +213,15 @@ class Inventory {
             slotEl.setAttribute("data-slot-id", i);
 
             // Events fired on the slots (drop targets)
-            slotEl.addEventListener("dragover", this.handleDragOver.bind(this));
-            slotEl.addEventListener("dragenter", this.handleDragEnter.bind(this));
-            slotEl.addEventListener("dragleave", this.handleDragLeave.bind(this));
-            slotEl.addEventListener("drop", this.handleDrop.bind(this));
+            slotEl.addEventListener("dragover", this.#handleDragOver.bind(this));
+            slotEl.addEventListener("dragenter", this.#handleDragEnter.bind(this));
+            slotEl.addEventListener("dragleave", this.#handleDragLeave.bind(this));
+            slotEl.addEventListener("drop", this.#handleDrop.bind(this));
 
             this.inventoryEl.appendChild(slotEl);
         }
 
-        // Generate items in slots
+        // Generate items inside inventory slots
         for (const itemId in this.inventoryDict) {
             const item = this.inventoryDict[itemId];
             const { slotId } = item;
@@ -199,15 +233,42 @@ class Inventory {
             itemEl.textContent = itemId;
 
             // Events fired on the items (draggable elements)
-            itemEl.addEventListener("dragstart", this.handleDragStart.bind(this));
-            itemEl.addEventListener("dragend", this.handleDragEnd.bind(this));
+            itemEl.addEventListener("dragstart", this.#handleDragStart.bind(this));
+            itemEl.addEventListener("dragend", this.#handleDragEnd.bind(this));
 
-            const slotEl = document.querySelector(`[data-slot-id="${slotId}"]`);
+            const slotEl = this.inventoryEl.querySelector(`[data-slot-id="${slotId}"]`);
             slotEl.appendChild(itemEl);
         }
-    };
+    }
 
+    increaseInventorySize(amount = 1) {
+        if (amount <= 0) {
+            return;
+        }
+
+        let newSize = this.inventorySize + amount;
+
+        this.inventorySize = newSize;
+        this.render();
+    }
+
+    decreaseInventorySize(amount = 1) {
+        if (amount <= 0) {
+            return;
+        }
+
+        // Guard: the inventory should not reduce its size bellow 0
+        let newSize = this.inventorySize - amount;
+        if (newSize <= 0) {
+            newSize = 0;
+        }
+
+        this.inventorySize = newSize;
+        this.render();
+    }
 }
 
-const inventory = new Inventory();
-inventory.init();
+const inventory = new Inventory({
+    containerId: "inventory-container",
+    inventorySize: 10
+});
