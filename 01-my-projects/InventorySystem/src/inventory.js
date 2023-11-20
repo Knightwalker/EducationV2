@@ -1,28 +1,34 @@
 const debugMode = true;
 
 class Inventory {
-    constructor({ containerId, inventorySize = 10 }) {
+    constructor({
+        containerId,
+        inventorySize = 10,
+        initialItems = []
+    }) {
         this.inventoryDict = {};
         this.inventorySize = inventorySize;
         this.inventoryEl = null;
         this.draggedItemEl = null;
         this.containerEl = null;
-        this.#init(containerId);
+        this.#init(containerId, initialItems);
     }
 
     /**
      * @private
      */
-    #init(containerId) {
+    #init(containerId, initialItems) {
         this.inventoryEl = document.createElement("div");
         this.inventoryEl.classList.add("inventory");
         this.containerEl = document.getElementById(containerId);
         this.containerEl.appendChild(this.inventoryEl);
 
         // Seed data
-        this.inventoryDict["0"] = { itemId: "0", name: "sandwich", slotId: "3" };
-        this.inventoryDict["1"] = { itemId: "1", name: "water bottle", slotId: "0" };
-        this.render();
+        for (const item of initialItems) {
+            this.inventoryDict[item.itemId] = item;
+        }
+
+        this.#render();
     };
 
     /**
@@ -203,8 +209,12 @@ class Inventory {
         }
     }
 
-    render() {
-        this.inventoryEl.innerHTML = "";
+    /**
+     * @private
+     */
+    #render() {
+        // Clear the element of all child nodes 
+        this.inventoryEl.replaceChildren();
 
         // Generate inventory slots
         for (let i = 0; i < this.inventorySize; i++) {
@@ -241,6 +251,9 @@ class Inventory {
         }
     }
 
+    /**
+     * @public
+     */
     increaseInventorySize(amount = 1) {
         if (amount <= 0) {
             return;
@@ -249,9 +262,12 @@ class Inventory {
         let newSize = this.inventorySize + amount;
 
         this.inventorySize = newSize;
-        this.render();
+        this.#render();
     }
 
+    /**
+     * @public
+     */
     decreaseInventorySize(amount = 1) {
         if (amount <= 0) {
             return;
@@ -264,11 +280,15 @@ class Inventory {
         }
 
         this.inventorySize = newSize;
-        this.render();
+        this.#render();
     }
 }
 
 const inventory = new Inventory({
     containerId: "inventory-container",
-    inventorySize: 10
+    inventorySize: 10,
+    initialItems: [
+        { itemId: "0", name: "sandwich", slotId: "3" },
+        { itemId: "1", name: "water bottle", slotId: "0" }
+    ]
 });
