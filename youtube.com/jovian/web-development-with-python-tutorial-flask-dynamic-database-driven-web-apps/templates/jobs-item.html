@@ -1,7 +1,12 @@
-<div class="jobs-item mb-4">
-    <h4>{{ job['title'] }}</h4>
-    <div><b>Location: {{ job['location'] }}</b></div>
-    {% if 'salary' in job %}
-    <div><b>Salary: {{ job['salary'] }}</b></div>
-    {% endif %}
+<div class="jobs-item row mb-2 pb-2 border-bottom">
+    <div class="col-10">
+        <h4>{{ job['title'] }}</h4>
+        <div><b>Location: {{ job['location'] }}</b></div>
+        {% if 'salary' in job %}
+        <div><b>Salary: {{ job['salary'] }}</b></div>
+        {% endif %}
+    </div>
+    <div class="col-2">
+        <button type="button" class="btn btn-outline-primary">Apply</button>
+    </div>
 </div>
