@@ -14,11 +14,20 @@
 </head>
 
 <body>
+    {% include 'header.html' %}
     <div class="container">
+        <img class="banner" src="{{url_for('static', filename='banner.jpg')}}" alt="banner"></img>
         <h1 class="text-center my-2">{{company_name}} Careers</h1>
-        <img class="banner" src="{{url_for('static', filename='banner.jpg')}}" alt="HTML Dog"></img>
-        <h2 class="text-center">About Jovian</h2>
-        <p class="lead">Asd asd asd</p>
+        <div class="row">
+            <div class="col-8">
+                <p class="lead">
+                    Lorem ipsum dolor sit amet
+                </p>
+            </div>
+            <div class="col-4">
+                <img src="/static/people.jpg" style="width: 100%; object-fit: contain;"></img>
+            </div>
+        </div>
         <h2 class="text-center">Open Positions</h2>
         <div class="jobs-container mb-4">
             {% for job in jobs %}
@@ -26,10 +35,12 @@
             {% endfor %}
         </div>
         <div class="text-center">
-            <button class="btn btn-primary btn-large">Contact Us</button>
-            <p class="mt-4">Copyright 2022, Jovian</p>
+            <a type="button" class="btn btn-primary btn-large" href="mailto:hello@jovian.ai?subject=Question about openings">
+                Contact Us
+            </a>
         </div>
     </div>
+    {% include 'footer.html' %}
 </body>
 
 </html>
