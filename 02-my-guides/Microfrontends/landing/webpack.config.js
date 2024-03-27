@@ -15,11 +15,15 @@ module.exports = {
                     loader: "babel-loader",
                     options: {
                         presets: [
-                            ["@babel/preset-react", { runtime: "automatic" }], 
+                            ["@babel/preset-react", { runtime: "automatic" }],
                             ["@babel/preset-env"]
                         ]
                     }
                 }
+            },
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
             }
         ]
     },
@@ -28,7 +32,7 @@ module.exports = {
             name: "LandingModule",
             filename: "remoteEntry.js",
             exposes: {
-                "./App": "./src/app/App"
+                "./App": "./src/bootstrap"
             },
             shared: ["react", "react-dom"]
         }),
