@@ -1,5 +1,15 @@
 import { createRoot } from "react-dom/client";
 import App from "./app/App";
 
-const root = createRoot(document.getElementById("root"));
-root.render(<App />);
+const mount = ({ el }) => {
+    const root = createRoot(el);
+    root.render(<App />);
+};
+
+// Running in ISOLATION
+const root = document.getElementById("landing-root");
+if (root) {
+    mount({ el: root });
+}
+
+export { mount };
