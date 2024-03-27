@@ -5,6 +5,21 @@ const getIssues = (req, res) => {
     return res.status(200).send(issues);
 }
 
+const getUsers = (req, res) => {
+    const { users } = db;
+    return res.status(200).send(users);
+}
+
+const getUser = (req, res) => {
+    const { userId } = req.params;
+    const { users } = db;
+    const user = users.find(x => x.id === userId);
+    if (!user) {
+        return res.status(404).send({ message: "User not found" });
+    }
+    return res.status(200).send(user);
+}
+
 const getMovies = (req, res) => {
     const movies = db.movies;
     return res.status(200).send({ movies: movies });
@@ -38,6 +53,8 @@ const getRandomMovie = async (req, res) => {
 
 export {
     getIssues,
+    getUsers,
+    getUser,
     getMovies,
     getMovieById,
     getRandomMovie

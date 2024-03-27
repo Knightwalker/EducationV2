@@ -5,6 +5,7 @@ import AddIssue from "./pages/AddIssue";
 
 function App() {
   const isRootPath = useMatch({ path: "/", end: true });
+ 
   return (
     <div className="App">
       {!isRootPath ? (

@@ -1,31 +1,27 @@
-export let users = [
+const users = [
     {
         id: 'u_1',
         name: 'Tyler',
-        profilePictureUrl:
-            'https://res.cloudinary.com/uidotdev/image/twitter_name/tylermcginnis',
+        profilePictureUrl: 'https://res.cloudinary.com/uidotdev/image/twitter_name/tylermcginnis',
     },
     {
         id: 'u_2',
         name: 'Bono',
-        profilePictureUrl:
-            'https://res.cloudinary.com/uidotdev/image/twitter_name/u2',
+        profilePictureUrl: 'https://res.cloudinary.com/uidotdev/image/twitter_name/u2',
     },
     {
         id: 'u_3',
         name: 'Tanner',
-        profilePictureUrl:
-            'https://res.cloudinary.com/uidotdev/image/twitter_name/tannerlinsley',
+        profilePictureUrl: 'https://res.cloudinary.com/uidotdev/image/twitter_name/tannerlinsley',
     },
     {
         id: 'u_4',
         name: 'Alex',
-        profilePictureUrl:
-            'https://res.cloudinary.com/uidotdev/image/twitter_name/ralex1993',
+        profilePictureUrl: 'https://res.cloudinary.com/uidotdev/image/twitter_name/ralex1993',
     },
 ];
 
-export let labels = [
+const labels = [
     { id: 'bug', color: 'red', name: 'bug' },
     { id: 'feature', color: 'blue', name: 'feature' },
     { id: 'enhancement', color: 'cyan', name: 'enhancement' },
@@ -101,7 +97,7 @@ const templateIssueComments = [
 
 const allStatus = ['backlog', 'todo', 'inProgress', 'done', 'cancelled'];
 
-export const issueComments = Array.from(
+const issueComments = Array.from(
     { length: 500 },
     (_, j) => ({
         id: `c_${j}`,
@@ -119,7 +115,7 @@ export const issueComments = Array.from(
     return 0;
 });
 
-export const issues = Array.from({ length: 1000 }, (_, i) => {
+const issues = Array.from({ length: 1000 }, (_, i) => {
     const isCompleted = Math.random() > 0.9;
 
     const title = `${part1[Math.floor(Math.random() * part1.length)]} ${part2[Math.floor(Math.random() * part2.length)]} ${part3[Math.floor(Math.random() * part3.length)]}`;
@@ -152,3 +148,10 @@ export const issues = Array.from({ length: 1000 }, (_, i) => {
             : null,
     };
 });
+
+export {
+    users,
+    labels,
+    issueComments,
+    issues
+}

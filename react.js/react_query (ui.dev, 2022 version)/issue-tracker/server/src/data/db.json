@@ -1,9 +1,6 @@
 {
-    "issues": [
-        { "id": "i_999", "title": "Target cannot read property 'length' of undefined right now", "number": 1000 },
-        { "id": "i_998", "title": "My Cookies is crashing when im on a boat", "number": 999 },
-        { "id": "i_997", "title": "Button is not working properly", "number": 998 }
-    ],
+    "users": [],
+    "issues": [],
     "movies": [
         {
             "id": "2f32ba9a-316c-4d26-81fd-bac4caf5c09c",

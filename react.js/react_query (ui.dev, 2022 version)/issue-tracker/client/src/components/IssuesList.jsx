@@ -7,8 +7,6 @@ export default function IssuesList() {
         queryFn: () => fetch('http://localhost:5000/api/issues').then(res => res.json())
     });
 
-    console.log(issuesQuery.data);
-
     return (
         <div>
             <h2>Issues List</h2>
