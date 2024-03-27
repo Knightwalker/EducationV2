@@ -1,6 +1,6 @@
 const App = () => {
     return (
-        <div>Hello from Landing</div>
+        <div>Hello from Dashboard</div>
     )
 };
 

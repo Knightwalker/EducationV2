@@ -7,7 +7,7 @@ const mount = ({ el }) => {
 };
 
 // Running in ISOLATION
-const root = document.getElementById("landing-root");
+const root = document.getElementById("dashboard-root");
 if (root) {
     mount({ el: root });
 }

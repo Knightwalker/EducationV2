@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
     mode: "development",
     devServer: {
-        port: 3000
+        port: 3000,
+        historyApiFallback: true, /* required for react-router-dom, because it uses HTML5 History API */
     },
     module: {
         rules: [
@@ -31,7 +32,8 @@ module.exports = {
         new ModuleFederationPlugin({
             name: "host",
             remotes: {
-                LandingModule: "LandingModule@http://localhost:3001/remoteEntry.js"
+                LandingModule: "LandingModule@http://localhost:3001/remoteEntry.js",
+                DashboardModule: "DashboardModule@http://localhost:3002/remoteEntry.js"
             },
             shared: ["react", "react-dom"]
         }),
