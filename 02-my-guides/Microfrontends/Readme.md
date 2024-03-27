@@ -47,5 +47,5 @@ In each **index.html**, write:
 </html>
 ```
 
-run `npm install react react-dom` in the root dir of each mfe (e.g., auth, dashboard, host, landing)
-run `npm install webpack webpack-cli webpack-dev-server html-webpack-plugin babel-loader @babel/preset-react @babel/preset-env --save-dev` in the root dir of each mfe (e.g., auth, dashboard, host, landing)
+run `npm install react react-dom react-router-dom` in the root dir of each mfe (e.g., auth, dashboard, host, landing)
+run `npm install webpack webpack-cli webpack-dev-server html-webpack-plugin babel-loader @babel/preset-react @babel/preset-env css-loader style-loader --save-dev` in the root dir of each mfe (e.g., auth, dashboard, host, landing)

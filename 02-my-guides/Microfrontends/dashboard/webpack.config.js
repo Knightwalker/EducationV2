@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     devServer: {
-        port: 3001,
+        port: 3002,
         historyApiFallback: true, /* required for react-router-dom, because it uses HTML5 History API */
     },
     mode: "development",
@@ -30,7 +30,7 @@ module.exports = {
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: "LandingModule",
+            name: "DashboardModule",
             filename: "remoteEntry.js",
             exposes: {
                 "./App": "./src/bootstrap"
